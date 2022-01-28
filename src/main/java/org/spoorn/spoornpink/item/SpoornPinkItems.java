@@ -13,6 +13,9 @@ public class SpoornPinkItems {
 
     public static Item CHERRY_LOG_ITEM = registerBlockItem("cherry_log", SpoornPinkBlocks.CHERRY_LOG);
 
+    public static Item PINK_CHERRY_LEAVES_ITEM = registerBlockItem("pink_cherry_leaves", SpoornPinkBlocks.PINK_CHERRY_LEAVES);
+
+
     public static void init() {
 
     }

@@ -40,15 +40,15 @@ public class SpoornPinkBiomeRegistry {
             // Configure the feature using the builder
             .configure(new TreeFeatureConfig.Builder(
                     SimpleBlockStateProvider.of(SpoornPinkBlocks.CHERRY_LOG.getDefaultState()), // Trunk block provider
-                    new StraightTrunkPlacer(20, 3, 0), // places a straight trunk
-                    SimpleBlockStateProvider.of(Blocks.OAK_LEAVES.getDefaultState()), // Foliage block provider
-                    new BlobFoliagePlacer(ConstantIntProvider.create(5), ConstantIntProvider.create(0), 5), // places leaves as a blob (radius, offset from trunk, height)
+                    new StraightTrunkPlacer(8, 3, 0), // places a straight trunk
+                    SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_CHERRY_LEAVES.getDefaultState()), // Foliage block provider
+                    new BlobFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
                     new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
             ).build());
 
     public static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
     public static final PlacedFeature TEST = register("test_tree", TREE_RICH.withPlacement(
-            PlacedFeatures.createCountExtraModifier(3, 0.1F, 2), SquarePlacementModifier.of(), NOT_IN_SURFACE_WATER_MODIFIER, PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)), BiomePlacementModifier.of()
+            PlacedFeatures.createCountExtraModifier(3, 0.05F, 2), SquarePlacementModifier.of(), NOT_IN_SURFACE_WATER_MODIFIER, PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)), BiomePlacementModifier.of()
     ));
 
     public static void init() {

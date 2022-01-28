@@ -33,8 +33,8 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
         for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
             SPBiome spBiome = entry.getValue();
             SpoornPinkUtil.ParameterPointData parameterPoints = spBiome.getParameterPoints();
-            this.addBiome(mapper, MultiNoiseUtil.ParameterRange.of(parameterPoints.temperature),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.humidity),
+            this.addBiome(mapper, MultiNoiseUtil.ParameterRange.of(parameterPoints.temperatureMin, parameterPoints.temperatureMax),
+                    MultiNoiseUtil.ParameterRange.of(parameterPoints.humidityMin, parameterPoints.humidityMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.continentalnessMin, parameterPoints.continentalnessMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.erosionMin, parameterPoints.erosionMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.weirdnessMin, parameterPoints.weirdnessMax),

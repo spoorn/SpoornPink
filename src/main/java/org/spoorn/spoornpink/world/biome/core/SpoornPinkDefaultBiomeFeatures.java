@@ -9,7 +9,7 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 /**
- * Similar to vanilla's DefaultBiomeFeatures.  Generation/Spawn settings that can be used by any biome.
+ * Similar to vanilla's {@link DefaultBiomeFeatures}.  Generation/Spawn settings that can be used by any biome.
  */
 public final class SpoornPinkDefaultBiomeFeatures {
 

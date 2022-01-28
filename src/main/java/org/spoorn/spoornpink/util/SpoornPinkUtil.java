@@ -10,8 +10,10 @@ public final class SpoornPinkUtil {
      */
     @AllArgsConstructor
     public static class ParameterPointData {
-        public float temperature;
-        public float humidity;
+        public float temperatureMin;
+        public float temperatureMax;
+        public float humidityMin;
+        public float humidityMax;
         public float continentalnessMin;
         public float continentalnessMax;
         public float erosionMin;
@@ -22,9 +24,9 @@ public final class SpoornPinkUtil {
         public float offset;
     }
 
-    public static ParameterPointData constructParameterPoint(float temperature, float humidity, float continentalnessMin,
+    public static ParameterPointData constructParameterPoint(float temperatureMin, float temperatureMax, float humidityMin, float humidityMax, float continentalnessMin,
             float continentalnessMax, float erosionMin, float erosionMax, float weirdnessMin, float weirdnessMax, float depth, float offset) {
-        return new ParameterPointData(temperature, humidity, continentalnessMin, continentalnessMax, erosionMin,
+        return new ParameterPointData(temperatureMin, temperatureMax, humidityMin, humidityMax, continentalnessMin, continentalnessMax, erosionMin,
                 erosionMax, weirdnessMin, weirdnessMax, depth, offset);
     }
 }

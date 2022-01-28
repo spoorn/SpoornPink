@@ -34,6 +34,6 @@ public class KikoForestBiome extends AbstractSPBiome {
 
     @Override
     public SpoornPinkUtil.ParameterPointData getParameterPoints() {
-        return SpoornPinkUtil.constructParameterPoint(0.0f, 0.1f, -0.2f, 1.0f, -1.0f, 1.0f, -0.9f, 0.9f, 0.0f, 0.0f);
+        return SpoornPinkUtil.constructParameterPoint(-0.1f, 0.1f, 0.1f, 0.1f, -0.2f, 1.0f, -1.0f, 1.0f, -0.9f, 0.9f, 0.0f, 0.0f);
     }
 }
