@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "spoornpink",
+  "version": "${version}",
+  "name": "Spoornpink",
+  "description": "Adds pink stuff",
+  "authors": [
+    "spoorn"
+  ],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/spoornpink/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.spoorn.spoornpink.client.SpoornPinkClient"
+    ],
+    "main": [
+      "org.spoorn.spoornpink.SpoornPink"
+    ]
+  },
+  "mixins": [
+    "spoornpink.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "cloth-config2": "*"
+  }
+}
