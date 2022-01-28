@@ -8,6 +8,7 @@ import net.fabricmc.api.Environment;
 @Log4j2
 @Environment(EnvType.CLIENT)
 public class SpoornPinkClient implements ClientModInitializer {
+
     @Override
     public void onInitializeClient() {
         log.info("Hello client from SpoornPink!");

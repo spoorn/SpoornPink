@@ -17,6 +17,9 @@
     ],
     "main": [
       "org.spoorn.spoornpink.SpoornPink"
+    ],
+    "terrablender": [
+      "org.spoorn.spoornpink.SpoornPink"
     ]
   },
   "mixins": [

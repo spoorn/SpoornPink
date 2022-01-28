@@ -21,6 +21,9 @@ repositories {
 
     // Cloth Config
     maven { url "https://maven.shedaniel.me/" }
+
+    // TerraBlender
+    maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 dependencies {
@@ -36,6 +39,10 @@ dependencies {
     modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
         exclude(group: "net.fabricmc.fabric-api")
     }
+
+    // TerraBlender
+    // FYI, TerraBlender documentation uses official mojang mappings
+    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
 }
 
 processResources {
