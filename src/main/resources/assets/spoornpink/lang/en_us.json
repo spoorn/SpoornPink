@@ -1,3 +1,6 @@
 {
-
+  "biome.spoornpink.kiko_forest" : "Kiko Forest",
+  "biome.spoornpink.pink_forest" : "Pink Forest",
+  "block.spoornpink.cherry_log" : "Cherry Log",
+  "itemGroup.spoornpink.general" : "Pink Everything"
 }
