@@ -1,5 +1,6 @@
-package org.spoorn.spoornpink.world.biome;
+package org.spoorn.spoornpink.world.biome.core;
 
+import lombok.extern.log4j.Log4j2;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -17,8 +18,20 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.SpoornPinkBlocks;
+import org.spoorn.spoornpink.world.biome.KikoForestBiome;
+import org.spoorn.spoornpink.world.biome.PinkForestBiome;
+import org.spoorn.spoornpink.world.biome.SPBiome;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+@Log4j2
 public class SpoornPinkBiomeRegistry {
+
+    public static final Map<RegistryKey<Biome>, SPBiome> BIOMES = new HashMap<>();
 
     public static final RegistryKey<Biome> KIKO_FOREST = registerBiomeKey("kiko_forest");
     public static final RegistryKey<Biome> PINK_FOREST = registerBiomeKey("pink_forest");
@@ -39,8 +52,27 @@ public class SpoornPinkBiomeRegistry {
     ));
 
     public static void init() {
-        register(KIKO_FOREST, SpoornPinkOverworldBiomeCreator.kikoForest());
-        register(PINK_FOREST, SpoornPinkOverworldBiomeCreator.pinkForest());
+        log.info("Initializing Biome Registry");
+        BIOMES.put(KIKO_FOREST, new KikoForestBiome());
+        BIOMES.put(PINK_FOREST, new PinkForestBiome());
+
+        registerBiomes();
+    }
+
+    private static void registerBiomes() {
+        log.info("Registering Biomes");
+        StringBuilder sb = new StringBuilder();
+        for (Entry<RegistryKey<Biome>, SPBiome> entry : BIOMES.entrySet()) {
+            RegistryKey<Biome> key = entry.getKey();
+            if (!sb.isEmpty()) {
+                sb.append(",");
+            }
+            sb.append(" ");
+            sb.append(key.getValue().toString());
+            register(key, SpoornPinkOverworldBiomeCreator.constructBiome(entry.getValue()));
+        }
+
+        log.info("Registered biomes: [{}]", sb);
     }
 
     private static Biome register(RegistryKey<Biome> key, Biome biome) {

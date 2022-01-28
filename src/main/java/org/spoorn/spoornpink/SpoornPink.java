@@ -3,15 +3,14 @@ package org.spoorn.spoornpink;
 import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 import org.spoorn.spoornpink.config.ModConfig;
 import org.spoorn.spoornpink.item.SpoornPinkItems;
-import org.spoorn.spoornpink.world.biome.SpoornPinkBiomeProvider;
-import org.spoorn.spoornpink.world.biome.SpoornPinkBiomeRegistry;
+import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
+import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeRegistry;
 import terrablender.api.BiomeProviders;
 import terrablender.api.TerraBlenderApi;
 
