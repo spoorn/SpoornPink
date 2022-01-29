@@ -41,11 +41,6 @@ public abstract class AbstractSPBiome implements SPBiome {
     }
 
     @Override
-    public float getTemperature() {
-        return 0.8f;
-    }
-
-    @Override
     public float getDownfall() {
         return 0.4f;
     }

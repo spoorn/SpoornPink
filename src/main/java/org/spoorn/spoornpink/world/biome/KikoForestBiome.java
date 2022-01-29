@@ -33,7 +33,12 @@ public class KikoForestBiome extends AbstractSPBiome {
     }
 
     @Override
+    public float getTemperature() {
+        return 0.7f;
+    }
+
+    @Override
     public SpoornPinkUtil.ParameterPointData getParameterPoints() {
-        return SpoornPinkUtil.constructParameterPoint(-0.1f, 0.1f, 0.1f, 0.1f, -0.2f, 1.0f, -1.0f, 1.0f, -0.9f, 0.9f, 0.0f, 0.0f);
+        return SpoornPinkUtil.constructParameterPoint(getTemperature(), getTemperature(), 0.7f, 0.7f, -0.9f, -0.9f, -1.0f, 1.0f, -1.0f, -1.0f, 0.0f, 0.0f);
     }
 }
