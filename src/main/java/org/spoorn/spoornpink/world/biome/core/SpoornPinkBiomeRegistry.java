@@ -1,17 +1,15 @@
 package org.spoorn.spoornpink.world.biome.core;
 
 import lombok.extern.log4j.Log4j2;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.blockpredicate.BlockPredicate;
-import net.minecraft.world.gen.decorator.*;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
@@ -44,11 +42,6 @@ public class SpoornPinkBiomeRegistry {
                     new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
             ).build());
 
-    public static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
-    public static final PlacedFeature TEST = register("test_tree", TREE_RICH.withPlacement(
-            PlacedFeatures.createCountExtraModifier(3, 0.05F, 2), SquarePlacementModifier.of(), NOT_IN_SURFACE_WATER_MODIFIER, PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP, BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)), BiomePlacementModifier.of()
-    ));
-
     public static void init() {
         log.info("Initializing Biome Registry");
         BIOMES.put(KIKO_FOREST, new KikoForestBiome());
@@ -63,9 +56,8 @@ public class SpoornPinkBiomeRegistry {
         for (Entry<RegistryKey<Biome>, SPBiome> entry : BIOMES.entrySet()) {
             RegistryKey<Biome> key = entry.getKey();
             if (!sb.isEmpty()) {
-                sb.append(",");
+                sb.append(", ");
             }
-            sb.append(" ");
             sb.append(key.getValue().toString());
             register(key, SpoornPinkOverworldBiomeCreator.constructBiome(entry.getValue()));
         }
@@ -79,9 +71,5 @@ public class SpoornPinkBiomeRegistry {
 
     private static RegistryKey<Biome> registerBiomeKey(String name) {
         return RegistryKey.of(Registry.BIOME_KEY, new Identifier(SpoornPink.MODID, name));
-    }
-
-    private static PlacedFeature register(String name, PlacedFeature feature) {
-        return Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(SpoornPink.MODID, name), feature);
     }
 }

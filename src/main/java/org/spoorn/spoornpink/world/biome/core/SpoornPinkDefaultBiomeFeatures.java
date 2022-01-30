@@ -7,6 +7,7 @@ import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import org.spoorn.spoornpink.world.gen.feature.SPPlacedFeatures;
 
 /**
  * Similar to vanilla's {@link DefaultBiomeFeatures}.  Generation/Spawn settings that can be used by any biome.
@@ -14,7 +15,7 @@ import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 public final class SpoornPinkDefaultBiomeFeatures {
 
     public static void addCherryBlossomTrees(GenerationSettings.Builder genSettings) {
-        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SpoornPinkBiomeRegistry.TEST);
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.CHERRY_TREE);
     }
 
     public static void addVanillaBasicMobs(SpawnSettings.Builder spawnSettings) {
