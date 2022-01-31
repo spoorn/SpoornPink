@@ -32,7 +32,7 @@ public class KikoForestBiome extends AbstractSPBiome {
     public void genSettings(GenerationSettings.Builder genSettings) {
         super.genSettings(genSettings);
         DefaultBiomeFeatures.addMossyRocks(genSettings);
-        SpoornPinkDefaultBiomeFeatures.addCherryBlossomTrees(genSettings);
+        SpoornPinkDefaultBiomeFeatures.addPinkBlossomTree(genSettings);
     }
 
     @Override

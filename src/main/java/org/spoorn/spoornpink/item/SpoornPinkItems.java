@@ -14,11 +14,11 @@ import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 
 public class SpoornPinkItems {
 
-    public static Item CHERRY_LOG_ITEM = registerBlockItem("cherry_log", SpoornPinkBlocks.CHERRY_LOG);
+    public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SpoornPinkBlocks.PINK_BLOSSOM_LOG);
 
-    public static Item PINK_CHERRY_LEAVES_ITEM = registerBlockItem("pink_cherry_leaves", SpoornPinkBlocks.PINK_CHERRY_LEAVES);
+    public static Item PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("pink_blossom_leaves", SpoornPinkBlocks.PINK_BLOSSOM_LEAVES);
 
-    public static Item PINK_CHERRY_SAPLING = registerSaplingItem("pink_cherry_sapling", SpoornPinkBlocks.PINK_CHERRY_SAPLING);
+    public static Item PINK_BLOSSOM_SAPLING = registerSaplingItem("pink_blossom_sapling", SpoornPinkBlocks.PINK_BLOSSOM_SAPLING);
 
 
     public static void init() {
@@ -37,6 +37,6 @@ public class SpoornPinkItems {
 
     // Update vanilla's composter block
     private static void registerCompostable(Item item) {
-        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put((ItemConvertible)item.asItem(), 0.3f);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(item.asItem(), 0.3f);
     }
 }

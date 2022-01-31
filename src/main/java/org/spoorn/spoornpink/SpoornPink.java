@@ -23,7 +23,7 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
     public static final String MODID = "spoornpink";
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
             new Identifier(MODID, "general"),
-            () -> new ItemStack(SpoornPinkBlocks.PINK_CHERRY_LEAVES)
+            () -> new ItemStack(SpoornPinkBlocks.PINK_BLOSSOM_SAPLING)
     );
 
     @Override

@@ -16,13 +16,13 @@ public class SPPlacedFeatures {
 
     public static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
 
-    public static final PlacedFeature CHERRY_TREE = register("cherry_tree",
-            SPConfiguredFeatures.CHERRY_TREE.withPlacement(
+    public static final PlacedFeature PINK_BLOSSOM_TREE = register("pink_blossom_tree",
+            SPConfiguredFeatures.PINK_BLOSSOM_TREE.withPlacement(
                     PlacedFeatures.createCountExtraModifier(3, 0.05F, 2),
                     SquarePlacementModifier.of(),
                     NOT_IN_SURFACE_WATER_MODIFIER,
                     PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
-                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SpoornPinkBlocks.PINK_CHERRY_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
+                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SpoornPinkBlocks.PINK_BLOSSOM_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
                     BiomePlacementModifier.of()));
 
     public static void init() {

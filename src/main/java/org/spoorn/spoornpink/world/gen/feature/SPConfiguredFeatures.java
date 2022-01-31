@@ -13,9 +13,9 @@ import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
 public class SPConfiguredFeatures {
 
-    public static final ConfiguredFeature<SPTreeConfig, ?> CHERRY_TREE = register("cherry_tree",
-            SPFeatures.CHERRY_TREE.configure(SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.CHERRY_LOG))
-                    .leavesProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_CHERRY_LEAVES))
+    public static final ConfiguredFeature<SPTreeConfig, ?> PINK_BLOSSOM_TREE = register("pink_blossom_tree",
+            SPFeatures.PINK_BLOSSOM_TREE.configure(SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LOG))
+                    .leavesProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LEAVES))
                     .build())
     );
 

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "spoornpink:block/pink_blossom_log_top",
+    "side": "spoornpink:block/pink_blossom_log"
+  }
+}

@@ -35,9 +35,9 @@ public class SpoornPinkBiomeRegistry {
     public static final ConfiguredFeature<?, ?> TREE_RICH = Feature.TREE
             // Configure the feature using the builder
             .configure(new TreeFeatureConfig.Builder(
-                    SimpleBlockStateProvider.of(SpoornPinkBlocks.CHERRY_LOG.getDefaultState()), // Trunk block provider
+                    SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LOG.getDefaultState()), // Trunk block provider
                     new StraightTrunkPlacer(5, 2, 0), // places a straight trunk
-                    SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_CHERRY_LEAVES.getDefaultState()), // Foliage block provider
+                    SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LEAVES.getDefaultState()), // Foliage block provider
                     new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
                     new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
             ).build());
@@ -45,7 +45,7 @@ public class SpoornPinkBiomeRegistry {
     public static void init() {
         log.info("Initializing Biome Registry");
         BIOMES.put(KIKO_FOREST, new KikoForestBiome());
-        BIOMES.put(PINK_FOREST, new PinkForestBiome());
+        //BIOMES.put(PINK_FOREST, new PinkForestBiome());
 
         registerBiomes();
     }

@@ -10,9 +10,9 @@ import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 import java.util.Random;
 import java.util.Set;
 
-public class CherryTree extends AbstractSPTree<SPTreeConfig> {
+public class PinkBlossomTree extends AbstractSPTree<SPTreeConfig> {
 
-    public CherryTree(Codec<SPTreeConfig> configCodec) {
+    public PinkBlossomTree(Codec<SPTreeConfig> configCodec) {
         super(configCodec);
     }
 

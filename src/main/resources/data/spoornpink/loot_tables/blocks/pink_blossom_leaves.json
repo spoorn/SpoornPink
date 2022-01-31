@@ -35,7 +35,7 @@
                   ]
                 }
               ],
-              "name": "spoornpink:pink_cherry_leaves"
+              "name": "spoornpink:pink_blossom_leaves"
             },
             {
               "type": "minecraft:item",
@@ -54,7 +54,7 @@
                   ]
                 }
               ],
-              "name": "spoornpink:pink_cherry_sapling"
+              "name": "spoornpink:pink_blossom_sapling"
             }
           ]
         }

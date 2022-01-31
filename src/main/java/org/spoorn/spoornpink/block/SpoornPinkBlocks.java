@@ -21,11 +21,11 @@ public class SpoornPinkBlocks {
 
     public static final List<Block> POTTED_BLOCKS = new ArrayList<>();
 
-    public static final Block CHERRY_LOG = registerLog("cherry_log");
+    public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
 
-    public static final Block PINK_CHERRY_LEAVES = registerLeaves(MapColor.PINK,"pink_cherry_leaves");
+    public static final Block PINK_BLOSSOM_LEAVES = registerLeaves(MapColor.PINK,"pink_blossom_leaves");
 
-    public static final Block PINK_CHERRY_SAPLING = registerSapling("pink_cherry_sapling", SPConfiguredFeatures.CHERRY_TREE);
+    public static final Block PINK_BLOSSOM_SAPLING = registerSapling("pink_blossom_sapling", SPConfiguredFeatures.PINK_BLOSSOM_TREE);
 
     public static void init() {
 

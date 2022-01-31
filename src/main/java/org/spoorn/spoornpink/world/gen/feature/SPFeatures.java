@@ -7,11 +7,11 @@ import net.minecraft.world.gen.feature.FeatureConfig;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 import org.spoorn.spoornpink.world.gen.feature.overworld.trees.AbstractSPTree;
-import org.spoorn.spoornpink.world.gen.feature.overworld.trees.CherryTree;
+import org.spoorn.spoornpink.world.gen.feature.overworld.trees.PinkBlossomTree;
 
 public class SPFeatures {
 
-    public static AbstractSPTree<SPTreeConfig> CHERRY_TREE = register("cherry_tree", new CherryTree(SPTreeConfig.CODEC.stable()));
+    public static AbstractSPTree<SPTreeConfig> PINK_BLOSSOM_TREE = register("pink_blossom_tree", new PinkBlossomTree(SPTreeConfig.CODEC.stable()));
 
     public static void init() {
 

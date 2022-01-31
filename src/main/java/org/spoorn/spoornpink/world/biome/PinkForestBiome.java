@@ -30,7 +30,7 @@ public class PinkForestBiome extends AbstractSPBiome {
     @Override
     public void genSettings(GenerationSettings.Builder genSettings) {
         super.genSettings(genSettings);
-        SpoornPinkDefaultBiomeFeatures.addCherryBlossomTrees(genSettings);
+        SpoornPinkDefaultBiomeFeatures.addPinkBlossomTree(genSettings);
     }
 
     @Override

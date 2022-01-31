@@ -6,13 +6,13 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.source.util.MultiNoiseUtil;
-import org.spoorn.spoornpink.util.SpoornPinkUtil;
 import org.spoorn.spoornpink.world.biome.SPBiome;
 import terrablender.api.BiomeProvider;
 import terrablender.worldgen.TBClimate;
 
+import java.util.HashSet;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.function.Consumer;
 
 @Log4j2
@@ -30,19 +30,26 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
     public void addOverworldBiomes(Registry<Biome> registry, Consumer<Pair<TBClimate.ParameterPoint, RegistryKey<Biome>>> mapper)
     {
         log.info("Adding overworld Biomes");
+        Set<RegistryKey<Biome>> replaced = new HashSet<>();
         for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
             SPBiome spBiome = entry.getValue();
             /*
             TODO: Use parameter point data if available.  Remove from KikoForest and PinkForest
             SpoornPinkUtil.ParameterPointData parameterPoints = spBiome.getParameterPoints();
             this.addBiome(mapper, MultiNoiseUtil.ParameterRange.of(parameterPoints.temperatureMin, parameterPoints.temperatureMax),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.humidityMin, parameterPoints.humidityMax),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.continentalnessMin, parameterPoints.continentalnessMax),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.erosionMin, parameterPoints.erosionMax),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.weirdnessMin, parameterPoints.weirdnessMax),
-                    MultiNoiseUtil.ParameterRange.of(parameterPoints.depth),
-                    parameterPoints.offset, entry.getKey());*/
-            this.addBiomeSimilar(mapper, spBiome.replacementBiome(), entry.getKey());
+                MultiNoiseUtil.ParameterRange.of(parameterPoints.humidityMin, parameterPoints.humidityMax),
+                MultiNoiseUtil.ParameterRange.of(parameterPoints.continentalnessMin, parameterPoints.continentalnessMax),
+                MultiNoiseUtil.ParameterRange.of(parameterPoints.erosionMin, parameterPoints.erosionMax),
+                MultiNoiseUtil.ParameterRange.of(parameterPoints.weirdnessMin, parameterPoints.weirdnessMax),
+                MultiNoiseUtil.ParameterRange.of(parameterPoints.depth),
+                parameterPoints.offset, entry.getKey());*/
+            RegistryKey<Biome> replacementBiome = spBiome.replacementBiome();
+            if (replaced.contains(replacementBiome)) {
+                throw new RuntimeException("Already replaced biome [" + replacementBiome + "]!  Could not add [" + spBiome + "]");
+            } else {
+                this.addBiomeSimilar(mapper, spBiome.replacementBiome(), entry.getKey());
+                replaced.add(spBiome.replacementBiome());
+            }
         }
     }
 
@@ -50,7 +57,7 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
     /*@Override
     public Optional<MaterialRules.MaterialRule> getOverworldSurfaceRules() {
         MaterialRules.MaterialCondition isAtOrAboveWaterLevel = MaterialRules.water(-1, 0);
-        MaterialRules.MaterialRule leaves = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, MaterialRules.block(SpoornPinkBlocks.PINK_CHERRY_LEAVES.getDefaultState())),
+        MaterialRules.MaterialRule leaves = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, MaterialRules.block(SpoornPinkBlocks.PINK_BLOSSOM_LEAVES.getDefaultState())),
                 MaterialRules.block(Blocks.DIRT.getDefaultState()));
         MaterialRules.MaterialRule leavesSurface = MaterialRules.condition(MaterialRules.surface(), leaves);
 

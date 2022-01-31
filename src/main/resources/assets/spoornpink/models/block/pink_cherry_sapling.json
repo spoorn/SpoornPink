@@ -1,7 +1,0 @@
-{
-  "parent": "block/cross",
-  "textures": {
-    "cross": "spoornpink:block/pink_cherry_sapling",
-    "particle": "spoornpink:block/pink_cherry_sapling"
-  }
-}
