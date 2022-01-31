@@ -10,6 +10,7 @@ import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import org.spoorn.spoornpink.SpoornPink;
+import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 
 public class SPPlacedFeatures {
 
@@ -21,8 +22,7 @@ public class SPPlacedFeatures {
                     SquarePlacementModifier.of(),
                     NOT_IN_SURFACE_WATER_MODIFIER,
                     PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
-                    // TODO: create sapling and update biome allowed
-                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(Blocks.OAK_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
+                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SpoornPinkBlocks.PINK_CHERRY_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
                     BiomePlacementModifier.of()));
 
     public static void init() {
