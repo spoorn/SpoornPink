@@ -1,7 +1,10 @@
 package org.spoorn.spoornpink.world.biome;
 
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.GenerationSettings;
 import org.spoorn.spoornpink.util.SpoornPinkUtil;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkDefaultBiomeFeatures;
@@ -33,6 +36,11 @@ public class PinkForestBiome extends AbstractSPBiome {
     @Override
     public float getTemperature() {
         return 0.8f;
+    }
+
+    @Override
+    public RegistryKey<Biome> replacementBiome() {
+        return BiomeKeys.BIRCH_FOREST;
     }
 
     @Override

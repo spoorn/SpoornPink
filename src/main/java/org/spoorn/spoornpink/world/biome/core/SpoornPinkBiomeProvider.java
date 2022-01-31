@@ -32,6 +32,8 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
         log.info("Adding overworld Biomes");
         for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
             SPBiome spBiome = entry.getValue();
+            /*
+            TODO: Use parameter point data if available.  Remove from KikoForest and PinkForest
             SpoornPinkUtil.ParameterPointData parameterPoints = spBiome.getParameterPoints();
             this.addBiome(mapper, MultiNoiseUtil.ParameterRange.of(parameterPoints.temperatureMin, parameterPoints.temperatureMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.humidityMin, parameterPoints.humidityMax),
@@ -39,7 +41,8 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.erosionMin, parameterPoints.erosionMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.weirdnessMin, parameterPoints.weirdnessMax),
                     MultiNoiseUtil.ParameterRange.of(parameterPoints.depth),
-                    parameterPoints.offset, entry.getKey());
+                    parameterPoints.offset, entry.getKey());*/
+            this.addBiomeSimilar(mapper, spBiome.replacementBiome(), entry.getKey());
         }
     }
 
