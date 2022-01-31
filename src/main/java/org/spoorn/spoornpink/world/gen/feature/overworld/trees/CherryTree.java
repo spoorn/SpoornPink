@@ -32,6 +32,16 @@ public class CherryTree extends AbstractSPTree<SPTreeConfig> {
             mutableBlockPos.move(Direction.UP);
         }
 
+        int leavesHeight = config.leavesHeight;
+        boolean isEven = leavesHeight % 2 == 0;
+        int halfHeight = leavesHeight / 2;
+        int start_dy = isEven ? halfHeight - 1 : halfHeight;
+        mutableBlockPos.move(Direction.DOWN, start_dy + 1);  // down 1 more since the loop above ends with moving up
+        for (int i = 0; i < leavesHeight; i++) {
+            placeLeavesSquare(changedBlocks, world, random, config, mutableBlockPos);
+            mutableBlockPos.move(Direction.UP);
+        }
+
         return true;
     }
 }

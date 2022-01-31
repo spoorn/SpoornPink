@@ -27,7 +27,7 @@ public class SpoornPinkBlocks {
     }
 
     public static Block registerLeaves(MapColor color, String id) {
-        Block block = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES, color).strength(0.2f).ticksRandomly()
+        Block block = new LeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, color).strength(0.2f).ticksRandomly()
                 .sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(SpoornPinkBlocks::canSpawnOnLeaves)
                 .suffocates((state, world, pos) -> false).blockVision((state, world, pos) -> false));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);

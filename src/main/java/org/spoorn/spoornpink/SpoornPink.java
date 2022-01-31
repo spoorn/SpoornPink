@@ -11,6 +11,9 @@ import org.spoorn.spoornpink.config.ModConfig;
 import org.spoorn.spoornpink.item.SpoornPinkItems;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeRegistry;
+import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
+import org.spoorn.spoornpink.world.gen.feature.SPFeatures;
+import org.spoorn.spoornpink.world.gen.feature.SPPlacedFeatures;
 import terrablender.api.BiomeProviders;
 import terrablender.api.TerraBlenderApi;
 
@@ -35,6 +38,11 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
 
         // Items
         SpoornPinkItems.init();
+
+        // Register features
+        SPFeatures.init();
+        SPConfiguredFeatures.init();
+        SPPlacedFeatures.init();
 
         // Register biome keys
         SpoornPinkBiomeRegistry.init();

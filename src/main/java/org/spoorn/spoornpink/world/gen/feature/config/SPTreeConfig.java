@@ -26,7 +26,6 @@ public class SPTreeConfig implements FeatureConfig {
                     (Codec.INT.fieldOf("min_height")).forGetter(spTreeConfig -> spTreeConfig.minHeight),
                     (Codec.INT.fieldOf("max_height")).forGetter(spTreeConfig -> spTreeConfig.maxHeight),
                     (Codec.INT.fieldOf("radius")).forGetter(spTreeConfig -> spTreeConfig.radius),
-                    (Codec.INT.fieldOf("leaves_offset")).forGetter(spTreeConfig -> spTreeConfig.leavesOffset),
                     (Codec.INT.fieldOf("leaves_height")).forGetter(spTreeConfig -> spTreeConfig.leavesHeight))
                     .apply(instance, SPTreeConfig::new));
 
@@ -39,7 +38,6 @@ public class SPTreeConfig implements FeatureConfig {
     public final int maxHeight;
 
     public final int radius;  // radius of leaves width
-    public final int leavesOffset;
     public final int leavesHeight;
 
     public static SPTreeConfigBuilder builder() {
@@ -54,7 +52,6 @@ public class SPTreeConfig implements FeatureConfig {
         private int minHeight = 5;
         private int maxHeight = 8;
         private int radius = 2;
-        private int leavesOffset = 0;
         private int leavesHeight = 3;
 
         SPTreeConfigBuilder() {
@@ -90,18 +87,13 @@ public class SPTreeConfig implements FeatureConfig {
             return this;
         }
 
-        public SPTreeConfigBuilder leavesOffset(int leavesOffset) {
-            this.leavesOffset = leavesOffset;
-            return this;
-        }
-
         public SPTreeConfigBuilder leavesHeight(int leavesHeight) {
             this.leavesHeight = leavesHeight;
             return this;
         }
 
         public SPTreeConfig build() {
-            return new SPTreeConfig(trunkProvider, leavesProvider, dirtProvider, minHeight, maxHeight, radius, leavesOffset, leavesHeight);
+            return new SPTreeConfig(trunkProvider, leavesProvider, dirtProvider, minHeight, maxHeight, radius, leavesHeight);
         }
     }
 }
