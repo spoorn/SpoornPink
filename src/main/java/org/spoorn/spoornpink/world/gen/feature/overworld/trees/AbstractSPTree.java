@@ -41,7 +41,8 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
     public boolean generate(FeatureContext<FC> context) {
         Set<BlockPos> changedTrunkBlocks = Sets.newHashSet();
         Set<BlockPos> changedLeafBlocks = Sets.newHashSet();
-        boolean generated = generate(changedTrunkBlocks, changedLeafBlocks, context.getWorld(), context.getRandom(), context.getOrigin(), context.getConfig());
+        StructureWorldAccess world = context.getWorld();
+        boolean generated = generate(changedTrunkBlocks, changedLeafBlocks, world, context.getRandom(), context.getOrigin(), context.getConfig());
         if (!generated || changedTrunkBlocks.isEmpty() && changedLeafBlocks.isEmpty()) {
             return false;
         }
@@ -50,8 +51,8 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
          * Copy vanilla's from {@link TreeFeature}.
          */
         return BlockBox.encompassPositions(Iterables.concat(changedTrunkBlocks, changedLeafBlocks)).map(box -> {
-            VoxelSet voxelSet = placeLogsAndLeaves(context.getWorld(), box, changedTrunkBlocks);
-            Structure.updateCorner(context.getWorld(), Block.NOTIFY_ALL, voxelSet, box.getMinX(), box.getMinY(), box.getMinZ());
+            VoxelSet voxelSet = placeLogsAndLeaves(world, box, changedTrunkBlocks);
+            Structure.updateCorner(world, Block.NOTIFY_ALL, voxelSet, box.getMinX(), box.getMinY(), box.getMinZ());
             return true;
         }).orElse(false);
     }
@@ -80,11 +81,25 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
         return false;
     }
 
-    protected void placeLeavesSquare(Set<BlockPos> changedBlocks, StructureWorldAccess world, Random random, SPTreeConfig config, BlockPos centerPos) {
-        int radius = config.radius;
+    protected void placeLeavesSquare(Set<BlockPos> changedBlocks, StructureWorldAccess world, Random random, SPTreeConfig config, BlockPos centerPos, int levelRadius, boolean widestDisk) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        for (int j = -radius; j <= radius; ++j) {
-            for (int k = -radius; k <= radius; ++k) {
+        for (int j = -levelRadius; j <= levelRadius; ++j) {
+            for (int k = -levelRadius; k <= levelRadius; ++k) {
+                boolean jEnd = Math.abs(j) == levelRadius;
+                boolean kEnd = Math.abs(k) == levelRadius;
+                boolean onlyOneEnd = (jEnd || kEnd) && !(jEnd && kEnd);
+                if (levelRadius == config.radius) {
+                    if (jEnd && kEnd) {
+                        continue;
+                    }
+
+                    if (!widestDisk && ((jEnd && Math.abs(k) == levelRadius - 1) || kEnd && Math.abs(j) == levelRadius - 1)) {
+                        continue;
+                    }
+                }
+                if ((jEnd && kEnd && random.nextInt(2) == 0) || (onlyOneEnd && random.nextInt(6) == 0)) {
+                    continue;
+                }
                 mutable.set(centerPos, j, 0, k);
                 placeLeaves(changedBlocks, world, random, mutable, config);
             }

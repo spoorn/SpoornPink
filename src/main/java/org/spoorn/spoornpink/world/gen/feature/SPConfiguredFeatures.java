@@ -16,8 +16,6 @@ public class SPConfiguredFeatures {
     public static final ConfiguredFeature<SPTreeConfig, ?> CHERRY_TREE = register("cherry_tree",
             SPFeatures.CHERRY_TREE.configure(SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.CHERRY_LOG))
                     .leavesProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_CHERRY_LEAVES))
-                    .minHeight(5)
-                    .maxHeight(10)
                     .build())
     );
 

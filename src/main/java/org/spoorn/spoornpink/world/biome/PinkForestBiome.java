@@ -37,6 +37,6 @@ public class PinkForestBiome extends AbstractSPBiome {
 
     @Override
     public SpoornPinkUtil.ParameterPointData getParameterPoints() {
-        return SpoornPinkUtil.constructParameterPoint(getTemperature(), getTemperature(), 0.1f, 0.1f, 1.0f, 1.0f, 0f, 0f, -1.0f, -1.0f, 0.0f, 0.0f);
+        return SpoornPinkUtil.constructParameterPoint(getTemperature(), getTemperature(), 0.0f, 0.0f, 1.0f, 1.0f, 0f, 0f, -1.0f, -1.0f, 0.0f, 0.0f);
     }
 }

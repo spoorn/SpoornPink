@@ -51,8 +51,8 @@ public class SPTreeConfig implements FeatureConfig {
         private BlockStateProvider dirtProvider = SimpleBlockStateProvider.of(Blocks.DIRT.getDefaultState());
         private int minHeight = 5;
         private int maxHeight = 8;
-        private int radius = 2;
-        private int leavesHeight = 3;
+        private int radius = 3;
+        private int leavesHeight = 6;
 
         SPTreeConfigBuilder() {
         }
