@@ -17,18 +17,18 @@ public class CherryTree extends AbstractSPTree<SPTreeConfig> {
     }
 
     @Override
-    protected boolean generate(Set<BlockPos> changedBlocks, StructureWorldAccess world, Random random, BlockPos origin, SPTreeConfig config) {
+    protected boolean generate(Set<BlockPos> changedTrunkBlocks, Set<BlockPos> changedLeafBlocks, StructureWorldAccess world, Random random, BlockPos origin, SPTreeConfig config) {
         if (world.toServerWorld().getRegistryKey() != World.OVERWORLD) {
             return false;
         }
 
         // Force dirt under tree if possible
-        placeDirt(changedBlocks, world, random, origin.down(), config);
+        placeDirt(changedTrunkBlocks, world, random, origin.down(), config);
 
         BlockPos.Mutable mutableBlockPos = origin.mutableCopy();
         int height = random.nextInt(config.minHeight, config.maxHeight + 1);
         for (int i = 0; i < height; ++i) {
-            placeTrunk(changedBlocks, world, random, mutableBlockPos, config);
+            placeTrunk(changedTrunkBlocks, world, random, mutableBlockPos, config);
             mutableBlockPos.move(Direction.UP);
         }
 
@@ -38,7 +38,7 @@ public class CherryTree extends AbstractSPTree<SPTreeConfig> {
         int start_dy = isEven ? halfHeight - 1 : halfHeight;
         mutableBlockPos.move(Direction.DOWN, start_dy + 1);  // down 1 more since the loop above ends with moving up
         for (int i = 0; i < leavesHeight; i++) {
-            placeLeavesSquare(changedBlocks, world, random, config, mutableBlockPos);
+            placeLeavesSquare(changedLeafBlocks, world, random, config, mutableBlockPos);
             mutableBlockPos.move(Direction.UP);
         }
 

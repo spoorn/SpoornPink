@@ -39,23 +39,24 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
 
     @Override
     public boolean generate(FeatureContext<FC> context) {
-        Set<BlockPos> changedBlocks = Sets.newHashSet();
-        boolean generated = generate(changedBlocks, context.getWorld(), context.getRandom(), context.getOrigin(), context.getConfig());
-        if (!generated || changedBlocks.isEmpty()) {
+        Set<BlockPos> changedTrunkBlocks = Sets.newHashSet();
+        Set<BlockPos> changedLeafBlocks = Sets.newHashSet();
+        boolean generated = generate(changedTrunkBlocks, changedLeafBlocks, context.getWorld(), context.getRandom(), context.getOrigin(), context.getConfig());
+        if (!generated || changedTrunkBlocks.isEmpty() && changedLeafBlocks.isEmpty()) {
             return false;
         }
 
         /**
          * Copy vanilla's from {@link TreeFeature}.
          */
-        return BlockBox.encompassPositions(Iterables.concat(changedBlocks)).map(box -> {
-            VoxelSet voxelSet = placeLogsAndLeaves(context.getWorld(), box, changedBlocks);
+        return BlockBox.encompassPositions(Iterables.concat(changedTrunkBlocks, changedLeafBlocks)).map(box -> {
+            VoxelSet voxelSet = placeLogsAndLeaves(context.getWorld(), box, changedTrunkBlocks);
             Structure.updateCorner(context.getWorld(), Block.NOTIFY_ALL, voxelSet, box.getMinX(), box.getMinY(), box.getMinZ());
             return true;
         }).orElse(false);
     }
 
-    protected abstract boolean generate(Set<BlockPos> changedBlocks, StructureWorldAccess world, Random random, BlockPos origin, SPTreeConfig config);
+    protected abstract boolean generate(Set<BlockPos> changedTrunkBlocks, Set<BlockPos> changedLeafBlocks, StructureWorldAccess world, Random random, BlockPos origin, SPTreeConfig config);
 
     protected boolean canGenerateDirt(TestableWorld world, BlockPos pos) {
         return world.testBlockState(pos, state -> Feature.isSoil(state) && !state.isOf(Blocks.GRASS_BLOCK) && !state.isOf(Blocks.MYCELIUM));
