@@ -29,6 +29,11 @@ public class SPRenderLayers {
         // Saplings
         map.put(SpoornPinkBlocks.PINK_CHERRY_SAPLING, RenderLayer.getCutout());
 
+        // Flower pots
+        for (Block block : SpoornPinkBlocks.POTTED_BLOCKS) {
+            map.put(block, RenderLayer.getCutout());
+        }
+
         RenderLayersMixin.getBlocks().putAll(map);
     }
 }

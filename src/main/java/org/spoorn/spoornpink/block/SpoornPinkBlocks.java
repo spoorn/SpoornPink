@@ -14,14 +14,18 @@ import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SpoornPinkBlocks {
+
+    public static final List<Block> POTTED_BLOCKS = new ArrayList<>();
 
     public static final Block CHERRY_LOG = registerLog("cherry_log");
 
     public static final Block PINK_CHERRY_LEAVES = registerLeaves(MapColor.PINK,"pink_cherry_leaves");
 
     public static final Block PINK_CHERRY_SAPLING = registerSapling("pink_cherry_sapling", SPConfiguredFeatures.CHERRY_TREE);
-
 
     public static void init() {
 
@@ -40,8 +44,14 @@ public class SpoornPinkBlocks {
     }
 
     private static Block registerSapling(String id, ConfiguredFeature<SPTreeConfig, ?> configuredFeature) {
-        SaplingBlock saplingBlock = new SPSaplingBlock(new SPSaplingGenerator(configuredFeature), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+        Block saplingBlock = new SPSaplingBlock(new SPSaplingGenerator(configuredFeature), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+        registerFlowerPot("potted_" + id, saplingBlock);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), saplingBlock);
+    }
+
+    private static void registerFlowerPot(String id, Block saplingBlock) {
+        Block block = new FlowerPotBlock(saplingBlock, FabricBlockSettings.copyOf(Blocks.POTTED_OAK_SAPLING));
+        POTTED_BLOCKS.add(Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block));
     }
 
     private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
