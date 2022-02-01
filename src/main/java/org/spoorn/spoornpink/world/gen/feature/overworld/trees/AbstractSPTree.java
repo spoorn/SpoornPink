@@ -81,6 +81,30 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
         return false;
     }
 
+    protected void placeBulbLeaves(Set<BlockPos> changedLeafBlocks, StructureWorldAccess world, Random random, int height,
+                                   BlockPos.Mutable mutableBlockPos, SPTreeConfig config) {
+        int dHeightDiv2 = Math.abs(config.maxHeight - height)/2;
+        // This is incremented because the bottom block is usually the trunk
+        int leavesHeight = config.leavesHeight + 1 - dHeightDiv2;
+        boolean isEven = leavesHeight % 2 == 0;
+        int halfHeight = leavesHeight / 2;
+        // Go down more similar to how vanilla trees have the leaves center around the 2nd or 3rd trunk down.
+        int start_dy = isEven ? halfHeight - 1 : halfHeight;
+        mutableBlockPos.move(Direction.DOWN, start_dy + 2);
+        int startRadius = config.radius;
+        // Loop until original leavesHeight so the top isn't cut off even when leaves are shorter for the bottom
+        for (int i = 0; i < leavesHeight + dHeightDiv2; i++) {
+            if (i > 1) {  // Skip bottom most disk
+                int radius = startRadius;
+                if (Math.abs(i - halfHeight) > 1) {
+                    radius -= Math.abs(i - halfHeight) - 1;  // pyramid shape
+                }
+                placeLeavesSquare(changedLeafBlocks, world, random, config, mutableBlockPos, radius, i == halfHeight);
+            }
+            mutableBlockPos.move(Direction.UP);
+        }
+    }
+
     protected void placeLeavesSquare(Set<BlockPos> changedBlocks, StructureWorldAccess world, Random random, SPTreeConfig config, BlockPos centerPos, int levelRadius, boolean widestDisk) {
         BlockPos.Mutable mutable = new BlockPos.Mutable();
         for (int j = -levelRadius; j <= levelRadius; ++j) {

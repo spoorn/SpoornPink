@@ -14,10 +14,14 @@ import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 
 public class SpoornPinkItems {
 
+    // Logs
     public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SpoornPinkBlocks.PINK_BLOSSOM_LOG);
 
+    // Leaves
     public static Item PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("pink_blossom_leaves", SpoornPinkBlocks.PINK_BLOSSOM_LEAVES);
+    public static Item DARK_PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("dark_pink_blossom_leaves", SpoornPinkBlocks.DARK_PINK_BLOSSOM_LEAVES);
 
+    // Saplings
     public static Item PINK_BLOSSOM_SAPLING = registerSaplingItem("pink_blossom_sapling", SpoornPinkBlocks.PINK_BLOSSOM_SAPLING);
 
 

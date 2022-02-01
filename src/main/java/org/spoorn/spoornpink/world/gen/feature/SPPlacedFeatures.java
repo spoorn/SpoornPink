@@ -1,6 +1,5 @@
 package org.spoorn.spoornpink.world.gen.feature;
 
-import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -16,8 +15,8 @@ public class SPPlacedFeatures {
 
     public static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
 
-    public static final PlacedFeature PINK_BLOSSOM_TREE = register("pink_blossom_tree",
-            SPConfiguredFeatures.PINK_BLOSSOM_TREE.withPlacement(
+    public static final PlacedFeature PINK_BLOSSOM_TREES = register("pink_blossom_trees",
+            SPConfiguredFeatures.PINK_BLOSSOM_TREES.withPlacement(
                     PlacedFeatures.createCountExtraModifier(3, 0.05F, 2),
                     SquarePlacementModifier.of(),
                     NOT_IN_SURFACE_WATER_MODIFIER,

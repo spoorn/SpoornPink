@@ -3,13 +3,13 @@ package org.spoorn.spoornpink.world.gen.feature;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
+
+import java.util.List;
 
 public class SPConfiguredFeatures {
 
@@ -17,6 +17,19 @@ public class SPConfiguredFeatures {
             SPFeatures.PINK_BLOSSOM_TREE.configure(SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LOG))
                     .leavesProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LEAVES))
                     .build())
+    );
+
+    public static final ConfiguredFeature<SPTreeConfig, ?> DARK_PINK_BLOSSOM_TREE = register("dark_pink_blossom_tree",
+            SPFeatures.PINK_BLOSSOM_TREE.configure(SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LOG))
+                    .leavesProvider(SimpleBlockStateProvider.of(SpoornPinkBlocks.DARK_PINK_BLOSSOM_LEAVES))
+                    .build())
+    );
+
+    public static final ConfiguredFeature<?, ?> PINK_BLOSSOM_TREES = register("pink_blossom_trees",
+            Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(List.of(
+                    new RandomFeatureEntry(PINK_BLOSSOM_TREE.withPlacement(), 0.5f),
+                    new RandomFeatureEntry(DARK_PINK_BLOSSOM_TREE.withPlacement(), 0.5f)
+            ), PINK_BLOSSOM_TREE.withPlacement()))
     );
 
     public static void init() {
