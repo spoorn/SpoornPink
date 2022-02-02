@@ -14,9 +14,11 @@ public class SpoornPinkItems {
 
     // Logs
     public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SPBlocks.PINK_BLOSSOM_LOG);
+    public static Item STRIPPED_PINK_BLOSSOM_LOG_ITEM = registerBlockItem("stripped_pink_blossom_log", SPBlocks.STRIPPED_PINK_BLOSSOM_LOG);
 
     // Wood
     public static Item PINK_BLOSSOM_WOOD = registerBlockItem("pink_blossom_wood", SPBlocks.PINK_BLOSSOM_WOOD);
+    public static Item STRIPPED_PINK_BLOSSOM_WOOD = registerBlockItem("stripped_pink_blossom_wood", SPBlocks.STRIPPED_PINK_BLOSSOM_WOOD);
 
     // Leaves
     public static Item PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("pink_blossom_leaves", SPBlocks.PINK_BLOSSOM_LEAVES);

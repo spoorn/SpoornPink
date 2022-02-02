@@ -15,9 +15,11 @@ public class SPFlammables {
     private static void registerFlammables() {
         // Logs
         registerLog(SPBlocks.PINK_BLOSSOM_LOG);
+        registerLog(SPBlocks.STRIPPED_PINK_BLOSSOM_LOG);
 
         // Wood
         registerWood(SPBlocks.PINK_BLOSSOM_WOOD);
+        registerWood(SPBlocks.STRIPPED_PINK_BLOSSOM_WOOD);
 
         // Planks
         registerPlanks(SPBlocks.PINK_BLOSSOM_PLANKS);

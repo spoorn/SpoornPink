@@ -9,6 +9,7 @@ import net.minecraft.util.Identifier;
 import org.spoorn.spoornpink.block.SPBlocks;
 import org.spoorn.spoornpink.block.SPFlammables;
 import org.spoorn.spoornpink.config.ModConfig;
+import org.spoorn.spoornpink.item.SPStrippedBlocks;
 import org.spoorn.spoornpink.item.SpoornPinkItems;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeRegistry;
@@ -39,6 +40,9 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
 
         // Items
         SpoornPinkItems.init();
+
+        // Stripped blocks
+        SPStrippedBlocks.init();
 
         // Register features
         SPFeatures.init();

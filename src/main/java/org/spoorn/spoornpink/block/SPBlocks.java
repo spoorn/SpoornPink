@@ -24,9 +24,11 @@ public class SPBlocks {
 
     // Logs
     public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
+    public static final Block STRIPPED_PINK_BLOSSOM_LOG = registerLog("stripped_pink_blossom_log");
 
     // Wood
     public static final Block PINK_BLOSSOM_WOOD = registerWood("pink_blossom_wood");
+    public static final Block STRIPPED_PINK_BLOSSOM_WOOD = registerWood("stripped_pink_blossom_wood");
 
     // Leaves
     public static final Block PINK_BLOSSOM_LEAVES = registerLeaves(MapColor.PINK,"pink_blossom_leaves");

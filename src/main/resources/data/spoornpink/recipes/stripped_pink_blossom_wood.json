@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "spoornpink:stripped_pink_blossom_log"
+    }
+  },
+  "result": {
+    "item": "spoornpink:stripped_pink_blossom_wood",
+    "count": 3
+  }
+}
