@@ -2,10 +2,7 @@ package org.spoorn.spoornpink.mixin;
 
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
-import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
-import net.minecraft.world.gen.feature.StructureFeature;
-import net.minecraft.world.gen.feature.StructurePoolFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -21,14 +18,20 @@ public class ConfiguredStructureFeaturesMixin {
 
     @Shadow @Final private static ConfiguredStructureFeature<StructurePoolFeatureConfig, ? extends StructureFeature<StructurePoolFeatureConfig>> VILLAGE_PLAINS;
 
+    @Shadow @Final private static ConfiguredStructureFeature<MineshaftFeatureConfig, ? extends StructureFeature<MineshaftFeatureConfig>> MINESHAFT;
+
+    @Shadow @Final private static ConfiguredStructureFeature<StructurePoolFeatureConfig, ? extends StructureFeature<StructurePoolFeatureConfig>> PILLAGER_OUTPOST;
+
     /**
      * Allow villages to spawn in my biomes.
      */
     @Inject(method = "registerAll", at = @At(value = "TAIL"))
-    private static void addVillages(BiConsumer<ConfiguredStructureFeature<?, ?>, RegistryKey<Biome>> registrar, CallbackInfo ci) {
+    private static void addConfiguredStructureFeatures(BiConsumer<ConfiguredStructureFeature<?, ?>, RegistryKey<Biome>> registrar, CallbackInfo ci) {
         // TODO: Add different villages based on the biome type (i.e. forest village)
         for (RegistryKey<Biome> biomeKey : SpoornPinkBiomeRegistry.BIOMES.keySet()) {
             registrar.accept(VILLAGE_PLAINS, biomeKey);
+            registrar.accept(MINESHAFT, biomeKey);
+            registrar.accept(PILLAGER_OUTPOST, biomeKey);
         }
     }
 }
