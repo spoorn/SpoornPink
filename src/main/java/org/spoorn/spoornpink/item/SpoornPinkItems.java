@@ -39,6 +39,9 @@ public class SpoornPinkItems {
     // Pressure Plates
     public static Item PINK_BLOSSOM_PRESSURE_PLATE = registerBlockItem("pink_blossom_pressure_plate", SPBlocks.PINK_BLOSSOM_PRESSURE_PLATE);
 
+    // Buttons
+    public static Item PINK_BLOSSOM_BUTTON = registerBlockItem("pink_blossom_button", SPBlocks.PINK_BLOSSOM_BUTTON);
+
 
     public static void init() {
 

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "spoornpink:pink_blossom_pressure_plate"
+          "name": "spoornpink:pink_blossom_button"
         }
       ],
       "conditions": [

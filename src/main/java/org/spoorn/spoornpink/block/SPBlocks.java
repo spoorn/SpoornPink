@@ -13,6 +13,7 @@ import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
 import org.spoorn.spoornpink.mixin.PressurePlateBlockAccess;
 import org.spoorn.spoornpink.mixin.StairsBlockAccess;
+import org.spoorn.spoornpink.mixin.WoodenButtonBlockAccessor;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
@@ -49,6 +50,9 @@ public class SPBlocks {
 
     // Pressure Plates
     public static final Block PINK_BLOSSOM_PRESSURE_PLATE = registerPressurePlate("pink_blossom_pressure_plate");
+
+    // Buttons
+    public static final Block PINK_BLOSSOM_BUTTON = registerButton("pink_blossom_button");
 
     public static void init() {
 
@@ -99,6 +103,11 @@ public class SPBlocks {
 
     private static Block registerPressurePlate(String id) {
         Block block = PressurePlateBlockAccess.create(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerButton(String id) {
+        Block block = WoodenButtonBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
