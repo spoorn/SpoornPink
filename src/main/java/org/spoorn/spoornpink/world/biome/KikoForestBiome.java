@@ -6,7 +6,6 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import org.spoorn.spoornpink.util.SpoornPinkUtil;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkDefaultBiomeFeatures;
 
@@ -31,7 +30,6 @@ public class KikoForestBiome extends AbstractSPBiome {
     @Override
     public void genSettings(GenerationSettings.Builder genSettings) {
         super.genSettings(genSettings);
-        DefaultBiomeFeatures.addMossyRocks(genSettings);
         SpoornPinkDefaultBiomeFeatures.addPinkBlossomTree(genSettings);
     }
 

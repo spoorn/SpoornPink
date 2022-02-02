@@ -18,6 +18,11 @@ public final class SpoornPinkDefaultBiomeFeatures {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_BLOSSOM_TREES);
     }
 
+    public static void addDefaultGrass(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_GRASS);
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_TALL_GRASS);
+    }
+
     public static void addVanillaBasicMobs(SpawnSettings.Builder spawnSettings) {
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 6));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 5, 2, 6));
@@ -36,8 +41,6 @@ public final class SpoornPinkDefaultBiomeFeatures {
         DefaultBiomeFeatures.addMineables(generationSettings);
         DefaultBiomeFeatures.addSprings(generationSettings);
         DefaultBiomeFeatures.addFrozenTopLayer(generationSettings);
-        DefaultBiomeFeatures.addDefaultOres(generationSettings);
-        DefaultBiomeFeatures.addDefaultDisks(generationSettings);
     }
 
     protected static int defaultSkyColor(float temperature) {

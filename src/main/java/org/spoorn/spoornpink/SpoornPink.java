@@ -59,6 +59,6 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
     @Override
     public void onTerraBlenderInitialized()
     {
-        BiomeProviders.register(new SpoornPinkBiomeProvider(new Identifier(MODID, "biome_provider"), 1));
+        BiomeProviders.register(new SpoornPinkBiomeProvider(new Identifier(MODID, "biome_provider"), ModConfig.get().overworldWeight));
     }
 }
