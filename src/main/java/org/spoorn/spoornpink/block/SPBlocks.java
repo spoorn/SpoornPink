@@ -37,6 +37,9 @@ public class SPBlocks {
     // Planks
     public static final Block PINK_BLOSSOM_PLANKS = registerPlanks("pink_blossom_planks");
 
+    // Slabs
+    public static final Block PINK_BLOSSOM_SLAB = registerSlab("pink_blossom_slab");
+
     public static void init() {
 
     }
@@ -71,6 +74,11 @@ public class SPBlocks {
 
     private static Block registerPlanks(String id) {
         Block block = new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerSlab(String id) {
+        Block block = new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 

@@ -22,6 +22,9 @@ public class SPFlammables {
         // Planks
         registerPlanks(SPBlocks.PINK_BLOSSOM_PLANKS);
 
+        // Slabs
+        registerSlab(SPBlocks.PINK_BLOSSOM_SLAB);
+
         // Leaves
         registerLeaves(SPBlocks.PINK_BLOSSOM_LEAVES);
         registerLeaves(SPBlocks.DARK_PINK_BLOSSOM_LEAVES);
@@ -36,6 +39,10 @@ public class SPFlammables {
     }
 
     private static void registerPlanks(Block block) {
+        registerFlammableBlock(block, 5, 20);
+    }
+
+    private static void registerSlab(Block block) {
         registerFlammableBlock(block, 5, 20);
     }
 

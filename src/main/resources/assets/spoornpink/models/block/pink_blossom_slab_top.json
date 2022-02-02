@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "spoornpink:block/pink_blossom_planks",
+    "top": "spoornpink:block/pink_blossom_planks",
+    "side": "spoornpink:block/pink_blossom_planks"
+  }
+}

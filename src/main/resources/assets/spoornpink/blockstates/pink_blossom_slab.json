@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "spoornpink:block/pink_blossom_slab"
+    },
+    "type=double": {
+      "model": "spoornpink:block/pink_blossom_planks"
+    },
+    "type=top": {
+      "model": "spoornpink:block/pink_blossom_slab_top"
+    }
+  }
+}
