@@ -12,7 +12,7 @@ import java.util.Map;
  * Add items such as saplings to the cutout render layers map in vanilla minecraft.
  */
 @Mixin(RenderLayers.class)
-public interface RenderLayersMixin {
+public interface RenderLayersAccessor {
 
     @Accessor("BLOCKS")
     static Map<Block, RenderLayer> getBlocks() {

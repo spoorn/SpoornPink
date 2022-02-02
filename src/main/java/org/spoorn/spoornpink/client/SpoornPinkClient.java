@@ -4,7 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
+import org.spoorn.spoornpink.block.SPBlocks;
 import org.spoorn.spoornpink.client.render.SPRenderLayers;
 import org.spoorn.spoornpink.item.SpoornPinkItems;
 
@@ -17,7 +17,7 @@ public class SpoornPinkClient implements ClientModInitializer {
         log.info("Hello client from SpoornPink!");
 
         // Blocks
-        SpoornPinkBlocks.init();
+        SPBlocks.init();
 
         // Items
         SpoornPinkItems.init();

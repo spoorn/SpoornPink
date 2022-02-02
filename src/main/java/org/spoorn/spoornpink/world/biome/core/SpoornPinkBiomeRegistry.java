@@ -2,22 +2,12 @@ package org.spoorn.spoornpink.world.biome.core;
 
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import org.spoorn.spoornpink.SpoornPink;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
 import org.spoorn.spoornpink.world.biome.KikoForestBiome;
-import org.spoorn.spoornpink.world.biome.PinkForestBiome;
 import org.spoorn.spoornpink.world.biome.SPBiome;
 
 import java.util.HashMap;
@@ -32,7 +22,7 @@ public class SpoornPinkBiomeRegistry {
     public static final RegistryKey<Biome> KIKO_FOREST = registerBiomeKey("kiko_forest");
     public static final RegistryKey<Biome> PINK_FOREST = registerBiomeKey("pink_forest");
 
-    public static final ConfiguredFeature<?, ?> TREE_RICH = Feature.TREE
+    /*public static final ConfiguredFeature<?, ?> TREE_RICH = Feature.TREE
             // Configure the feature using the builder
             .configure(new TreeFeatureConfig.Builder(
                     SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LOG.getDefaultState()), // Trunk block provider
@@ -40,7 +30,7 @@ public class SpoornPinkBiomeRegistry {
                     SimpleBlockStateProvider.of(SpoornPinkBlocks.PINK_BLOSSOM_LEAVES.getDefaultState()), // Foliage block provider
                     new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(0), 3), // places leaves as a blob (radius, offset from trunk, height)
                     new TwoLayersFeatureSize(1, 0, 1) // The width of the tree at different layers; used to see how tall the tree can be without clipping into blocks
-            ).build());
+            ).build());*/
 
     public static void init() {
         log.info("Initializing Biome Registry");

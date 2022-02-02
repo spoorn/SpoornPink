@@ -4,9 +4,10 @@
   "package": "org.spoorn.spoornpink.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "FireBlockAccessor"
   ],
   "client": [
-    "RenderLayersMixin"
+    "RenderLayersAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

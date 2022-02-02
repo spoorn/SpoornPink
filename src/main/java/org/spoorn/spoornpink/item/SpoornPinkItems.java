@@ -5,24 +5,28 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.spoorn.spoornpink.SpoornPink;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
+import org.spoorn.spoornpink.block.SPBlocks;
 
 public class SpoornPinkItems {
 
     // Logs
-    public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SpoornPinkBlocks.PINK_BLOSSOM_LOG);
+    public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SPBlocks.PINK_BLOSSOM_LOG);
+
+    // Wood
+    public static Item PINK_BLOSSOM_WOOD = registerBlockItem("pink_blossom_wood", SPBlocks.PINK_BLOSSOM_WOOD);
 
     // Leaves
-    public static Item PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("pink_blossom_leaves", SpoornPinkBlocks.PINK_BLOSSOM_LEAVES);
-    public static Item DARK_PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("dark_pink_blossom_leaves", SpoornPinkBlocks.DARK_PINK_BLOSSOM_LEAVES);
+    public static Item PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("pink_blossom_leaves", SPBlocks.PINK_BLOSSOM_LEAVES);
+    public static Item DARK_PINK_BLOSSOM_LEAVES_ITEM = registerBlockItem("dark_pink_blossom_leaves", SPBlocks.DARK_PINK_BLOSSOM_LEAVES);
 
     // Saplings
-    public static Item PINK_BLOSSOM_SAPLING = registerSaplingItem("pink_blossom_sapling", SpoornPinkBlocks.PINK_BLOSSOM_SAPLING);
+    public static Item PINK_BLOSSOM_SAPLING = registerSaplingItem("pink_blossom_sapling", SPBlocks.PINK_BLOSSOM_SAPLING);
+
+    // Planks
+    public static Item PINK_BLOSSOM_PLANKS = registerBlockItem("pink_blossom_planks", SPBlocks.PINK_BLOSSOM_PLANKS);
 
 
     public static void init() {

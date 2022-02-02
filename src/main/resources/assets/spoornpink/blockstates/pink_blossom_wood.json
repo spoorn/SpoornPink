@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "spoornpink:block/pink_blossom_wood"
+    },
+    "axis=z": {
+      "model": "spoornpink:block/pink_blossom_wood",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "spoornpink:block/pink_blossom_wood",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

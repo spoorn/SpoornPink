@@ -3,8 +3,8 @@ package org.spoorn.spoornpink.client.render;
 import lombok.extern.log4j.Log4j2;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
-import org.spoorn.spoornpink.mixin.RenderLayersMixin;
+import org.spoorn.spoornpink.block.SPBlocks;
+import org.spoorn.spoornpink.mixin.RenderLayersAccessor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +27,13 @@ public class SPRenderLayers {
         Map<Block, RenderLayer> map = new HashMap<>();
 
         // Saplings
-        map.put(SpoornPinkBlocks.PINK_BLOSSOM_SAPLING, RenderLayer.getCutout());
+        map.put(SPBlocks.PINK_BLOSSOM_SAPLING, RenderLayer.getCutout());
 
         // Flower pots
-        for (Block block : SpoornPinkBlocks.POTTED_BLOCKS) {
+        for (Block block : SPBlocks.POTTED_BLOCKS) {
             map.put(block, RenderLayer.getCutout());
         }
 
-        RenderLayersMixin.getBlocks().putAll(map);
+        RenderLayersAccessor.getBlocks().putAll(map);
     }
 }

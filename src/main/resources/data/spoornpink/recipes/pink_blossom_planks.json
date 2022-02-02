@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "spoornpink:pink_blossom_logs"
+    }
+  ],
+  "result": {
+    "item": "spoornpink:pink_blossom_planks",
+    "count": 4
+  }
+}

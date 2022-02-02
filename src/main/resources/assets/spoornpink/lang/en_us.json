@@ -2,9 +2,11 @@
   "biome.spoornpink.kiko_forest" : "Kiko Forest",
   "biome.spoornpink.pink_forest" : "Pink Forest",
   "block.spoornpink.pink_blossom_log" : "Pink Blossom Log",
+  "block.spoornpink.pink_blossom_wood" : "Pink Blossom Wood",
   "block.spoornpink.pink_blossom_leaves" : "Pink Blossom Leaves",
   "block.spoornpink.pink_blossom_sapling" : "Pink Blossom Sapling",
   "block.spoornpink.potted_pink_blossom_sapling" : "Potted Pink Blossom Sapling",
+  "block.spoornpink.pink_blossom_planks" : "Pink Blossom Planks",
   "block.spoornpink.dark_pink_blossom_leaves" : "Dark Pink Blossom Leaves",
   "itemGroup.spoornpink.general" : "Pink is Cute"
 }

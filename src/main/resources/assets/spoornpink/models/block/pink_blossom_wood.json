@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "spoornpink:block/pink_blossom_log",
+    "side": "spoornpink:block/pink_blossom_log"
+  }
+}

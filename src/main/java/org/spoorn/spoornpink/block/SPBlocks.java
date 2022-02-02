@@ -17,12 +17,15 @@ import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpoornPinkBlocks {
+public class SPBlocks {
 
     public static final List<Block> POTTED_BLOCKS = new ArrayList<>();
 
     // Logs
     public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
+
+    // Wood
+    public static final Block PINK_BLOSSOM_WOOD = registerWood("pink_blossom_wood");
 
     // Leaves
     public static final Block PINK_BLOSSOM_LEAVES = registerLeaves(MapColor.PINK,"pink_blossom_leaves");
@@ -30,6 +33,9 @@ public class SpoornPinkBlocks {
 
     // Saplings
     public static final Block PINK_BLOSSOM_SAPLING = registerSapling("pink_blossom_sapling", SPConfiguredFeatures.PINK_BLOSSOM_TREE);
+
+    // Planks
+    public static final Block PINK_BLOSSOM_PLANKS = registerPlanks("pink_blossom_planks");
 
     public static void init() {
 
@@ -40,9 +46,14 @@ public class SpoornPinkBlocks {
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
+    private static Block registerWood(String id) {
+        Block block = new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_WOOD));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
     private static Block registerLeaves(MapColor color, String id) {
         Block block = new LeavesBlock(AbstractBlock.Settings.of(Material.LEAVES, color).strength(0.2f).ticksRandomly()
-                .sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(SpoornPinkBlocks::canSpawnOnLeaves)
+                .sounds(BlockSoundGroup.GRASS).nonOpaque().allowsSpawning(SPBlocks::canSpawnOnLeaves)
                 .suffocates((state, world, pos) -> false).blockVision((state, world, pos) -> false));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
@@ -56,6 +67,11 @@ public class SpoornPinkBlocks {
     private static void registerFlowerPot(String id, Block saplingBlock) {
         Block block = new FlowerPotBlock(saplingBlock, FabricBlockSettings.copyOf(Blocks.POTTED_OAK_SAPLING));
         POTTED_BLOCKS.add(Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block));
+    }
+
+    private static Block registerPlanks(String id) {
+        Block block = new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
     private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {

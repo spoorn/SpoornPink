@@ -9,7 +9,7 @@ import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import org.spoorn.spoornpink.SpoornPink;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
+import org.spoorn.spoornpink.block.SPBlocks;
 
 public class SPPlacedFeatures {
 
@@ -21,7 +21,7 @@ public class SPPlacedFeatures {
                     SquarePlacementModifier.of(),
                     NOT_IN_SURFACE_WATER_MODIFIER,
                     PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
-                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SpoornPinkBlocks.PINK_BLOSSOM_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
+                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SPBlocks.PINK_BLOSSOM_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
                     BiomePlacementModifier.of()));
 
     public static void init() {

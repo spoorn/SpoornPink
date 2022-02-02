@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#spoornpink:logs"
+    "#spoornpink:logs",
+    "#spoornpink:planks",
+    "#spoornpink:wood"
   ]
 }

@@ -1,8 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=y": {
       "model": "spoornpink:block/pink_blossom_log"
+    },
+    "axis=z": {
+      "model": "spoornpink:block/pink_blossom_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "spoornpink:block/pink_blossom_log",
+      "x": 90,
+      "y": 90
     }
   }
 }
-

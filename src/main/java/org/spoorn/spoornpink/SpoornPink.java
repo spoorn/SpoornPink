@@ -6,7 +6,8 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import org.spoorn.spoornpink.block.SpoornPinkBlocks;
+import org.spoorn.spoornpink.block.SPBlocks;
+import org.spoorn.spoornpink.block.SPFlammables;
 import org.spoorn.spoornpink.config.ModConfig;
 import org.spoorn.spoornpink.item.SpoornPinkItems;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
@@ -23,7 +24,7 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
     public static final String MODID = "spoornpink";
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
             new Identifier(MODID, "general"),
-            () -> new ItemStack(SpoornPinkBlocks.PINK_BLOSSOM_SAPLING)
+            () -> new ItemStack(SPBlocks.PINK_BLOSSOM_SAPLING)
     );
 
     @Override
@@ -34,7 +35,7 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
         ModConfig.init();
 
         // Blocks
-        SpoornPinkBlocks.init();
+        SPBlocks.init();
 
         // Items
         SpoornPinkItems.init();
@@ -46,6 +47,9 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
 
         // Register biome keys
         SpoornPinkBiomeRegistry.init();
+
+        // Flammables
+        SPFlammables.init();
     }
 
     @Override
