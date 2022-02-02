@@ -23,6 +23,10 @@ public final class SpoornPinkDefaultBiomeFeatures {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_TALL_GRASS);
     }
 
+    public static void addBambooPatches(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.BAMBOO_PATCH);
+    }
+
     public static void addVanillaBasicMobs(SpawnSettings.Builder spawnSettings) {
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.WOLF, 5, 4, 6));
         spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityType.FOX, 5, 2, 6));

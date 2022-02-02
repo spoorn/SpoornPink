@@ -40,8 +40,17 @@ public class SPPlacedFeatures {
      * TODO: Add bamboo patches
      * TODO: Add my own PlacedFeatures for everything to prevent feature order cycle with any other mod's biomes
      */
-    public static final PlacedFeature PATCH_GRASS = PlacedFeatures.register("sp_patch_grass", VegetationConfiguredFeatures.PATCH_GRASS.withPlacement(SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));
-    public static final PlacedFeature PATCH_TALL_GRASS = PlacedFeatures.register("sp_patch_tall_grass", VegetationConfiguredFeatures.PATCH_TALL_GRASS.withPlacement(RarityFilterPlacementModifier.of(5), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+    public static final PlacedFeature PATCH_GRASS = PlacedFeatures.register("sp_patch_grass",
+            VegetationConfiguredFeatures.PATCH_GRASS.withPlacement(
+                    SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));
+    public static final PlacedFeature PATCH_TALL_GRASS = PlacedFeatures.register("sp_patch_tall_grass",
+            VegetationConfiguredFeatures.PATCH_TALL_GRASS.withPlacement(
+                    RarityFilterPlacementModifier.of(5), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+    public static final PlacedFeature BAMBOO_PATCH = PlacedFeatures.register("sp_bamboo_patch",
+            VegetationConfiguredFeatures.BAMBOO_SOME_PODZOL.withPlacement(
+                    CountPlacementModifier.of(10),
+                    RarityFilterPlacementModifier.of(20), SquarePlacementModifier.of(),
+                    PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));
 
 
     public static void init() {

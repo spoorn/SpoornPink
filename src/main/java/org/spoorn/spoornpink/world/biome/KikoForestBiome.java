@@ -31,6 +31,7 @@ public class KikoForestBiome extends AbstractSPBiome {
     public void genSettings(GenerationSettings.Builder genSettings) {
         super.genSettings(genSettings);
         SpoornPinkDefaultBiomeFeatures.addPinkBlossomTree(genSettings);
+        //SpoornPinkDefaultBiomeFeatures.addBambooPatches(genSettings);
     }
 
     @Override

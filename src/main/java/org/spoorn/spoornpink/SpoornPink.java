@@ -28,12 +28,19 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
             () -> new ItemStack(SPBlocks.PINK_BLOSSOM_SAPLING)
     );
 
+    private static boolean configInitialized = false;
+
     @Override
     public void onInitialize() {
         log.info("Hello from SpoornPink!");
 
         // Config
-        ModConfig.init();
+        synchronized (this) {
+            if (!configInitialized) {
+                ModConfig.init();
+                configInitialized = true;
+            }
+        }
 
         // Blocks
         SPBlocks.init();
@@ -57,8 +64,14 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
     }
 
     @Override
-    public void onTerraBlenderInitialized()
-    {
+    public void onTerraBlenderInitialized() {
+        // TerraBlender may be initialized before this mod or in parallel
+        synchronized (this) {
+            if (!configInitialized) {
+                ModConfig.init();
+                configInitialized = true;
+            }
+        }
         BiomeProviders.register(new SpoornPinkBiomeProvider(new Identifier(MODID, "biome_provider"), ModConfig.get().overworldWeight));
     }
 }
