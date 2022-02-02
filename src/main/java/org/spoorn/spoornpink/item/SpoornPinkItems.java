@@ -31,6 +31,9 @@ public class SpoornPinkItems {
     // Slabs
     public static Item PINK_BLOSSOM_SLAB = registerBlockItem("pink_blossom_slab", SPBlocks.PINK_BLOSSOM_SLAB);
 
+    // Stairs
+    public static Item PINK_BLOSSOM_STAIRS = registerBlockItem("pink_blossom_stairs", SPBlocks.PINK_BLOSSOM_STAIRS);
+
 
     public static void init() {
 

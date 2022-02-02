@@ -11,6 +11,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
+import org.spoorn.spoornpink.mixin.StairsBlockAccess;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
@@ -39,6 +40,9 @@ public class SPBlocks {
 
     // Slabs
     public static final Block PINK_BLOSSOM_SLAB = registerSlab("pink_blossom_slab");
+
+    // Stairs
+    public static final Block PINK_BLOSSOM_STAIRS = registerStairs("pink_blossom_stairs", PINK_BLOSSOM_PLANKS);
 
     public static void init() {
 
@@ -79,6 +83,11 @@ public class SPBlocks {
 
     private static Block registerSlab(String id) {
         Block block = new SlabBlock(FabricBlockSettings.copyOf(Blocks.OAK_SLAB));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerStairs(String id, Block defaultBlock) {
+        Block block = StairsBlockAccess.create(defaultBlock.getDefaultState(), FabricBlockSettings.copyOf(defaultBlock));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
