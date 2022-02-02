@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "texture": "spoornpink:block/pink_blossom_planks"
+  }
+}

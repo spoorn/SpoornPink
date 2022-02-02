@@ -6,7 +6,8 @@
   "mixins": [
     "FireBlockAccessor",
     "StairsBlockAccess",
-    "AxeItemAccessor"
+    "AxeItemAccessor",
+    "PressurePlateBlockAccess"
   ],
   "client": [
     "RenderLayersAccessor"

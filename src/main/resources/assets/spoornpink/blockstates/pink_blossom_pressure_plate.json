@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "spoornpink:block/pink_blossom_pressure_plate"
+    },
+    "powered=true": {
+      "model": "spoornpink:block/pink_blossom_pressure_plate_down"
+    }
+  }
+}

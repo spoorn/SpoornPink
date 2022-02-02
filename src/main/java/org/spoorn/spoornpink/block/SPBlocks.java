@@ -11,6 +11,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
+import org.spoorn.spoornpink.mixin.PressurePlateBlockAccess;
 import org.spoorn.spoornpink.mixin.StairsBlockAccess;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
@@ -45,6 +46,9 @@ public class SPBlocks {
 
     // Stairs
     public static final Block PINK_BLOSSOM_STAIRS = registerStairs("pink_blossom_stairs", PINK_BLOSSOM_PLANKS);
+
+    // Pressure Plates
+    public static final Block PINK_BLOSSOM_PRESSURE_PLATE = registerPressurePlate("pink_blossom_pressure_plate");
 
     public static void init() {
 
@@ -90,6 +94,11 @@ public class SPBlocks {
 
     private static Block registerStairs(String id, Block defaultBlock) {
         Block block = StairsBlockAccess.create(defaultBlock.getDefaultState(), FabricBlockSettings.copyOf(defaultBlock));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerPressurePlate(String id) {
+        Block block = PressurePlateBlockAccess.create(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
