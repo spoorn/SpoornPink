@@ -42,6 +42,9 @@ public class SpoornPinkItems {
     // Buttons
     public static Item PINK_BLOSSOM_BUTTON = registerBlockItem("pink_blossom_button", SPBlocks.PINK_BLOSSOM_BUTTON);
 
+    // Doors
+    public static Item PINK_BLOSSOM_DOOR = registerBlockItem("pink_blossom_door", SPBlocks.PINK_BLOSSOM_DOOR);
+
 
     public static void init() {
 

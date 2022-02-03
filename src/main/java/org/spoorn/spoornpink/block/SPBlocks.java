@@ -11,6 +11,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
+import org.spoorn.spoornpink.mixin.DoorBlockAccessor;
 import org.spoorn.spoornpink.mixin.PressurePlateBlockAccess;
 import org.spoorn.spoornpink.mixin.StairsBlockAccess;
 import org.spoorn.spoornpink.mixin.WoodenButtonBlockAccessor;
@@ -22,7 +23,9 @@ import java.util.List;
 
 public class SPBlocks {
 
+    public static final List<Block> SAPLINGS = new ArrayList<>();
     public static final List<Block> POTTED_BLOCKS = new ArrayList<>();
+    public static final List<Block> DOOR_BLOCKS = new ArrayList<>();
 
     // Logs
     public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
@@ -54,6 +57,9 @@ public class SPBlocks {
     // Buttons
     public static final Block PINK_BLOSSOM_BUTTON = registerButton("pink_blossom_button");
 
+    // Doors
+    public static final Block PINK_BLOSSOM_DOOR = registerDoor("pink_blossom_door");
+
     public static void init() {
 
     }
@@ -77,6 +83,7 @@ public class SPBlocks {
 
     private static Block registerSapling(String id, ConfiguredFeature<SPTreeConfig, ?> configuredFeature) {
         Block saplingBlock = new SPSaplingBlock(new SPSaplingGenerator(configuredFeature), FabricBlockSettings.copyOf(Blocks.OAK_SAPLING));
+        SAPLINGS.add(saplingBlock);
         registerFlowerPot("potted_" + id, saplingBlock);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), saplingBlock);
     }
@@ -108,6 +115,12 @@ public class SPBlocks {
 
     private static Block registerButton(String id) {
         Block block = WoodenButtonBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerDoor(String id) {
+        Block block = DoorBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_DOOR));
+        DOOR_BLOCKS.add(block);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 

@@ -27,10 +27,17 @@ public class SPRenderLayers {
         Map<Block, RenderLayer> map = new HashMap<>();
 
         // Saplings
-        map.put(SPBlocks.PINK_BLOSSOM_SAPLING, RenderLayer.getCutout());
+        for (Block block : SPBlocks.SAPLINGS) {
+            map.put(block, RenderLayer.getCutout());
+        }
 
         // Flower pots
         for (Block block : SPBlocks.POTTED_BLOCKS) {
+            map.put(block, RenderLayer.getCutout());
+        }
+
+        // Doors
+        for (Block block : SPBlocks.DOOR_BLOCKS) {
             map.put(block, RenderLayer.getCutout());
         }
 
