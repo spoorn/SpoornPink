@@ -67,6 +67,9 @@ public class SPBlocks {
     // Trapdoors
     public static final Block PINK_BLOSSOM_TRAPDOOR = registerTrapdoor("pink_blossom_trapdoor");
 
+    // Crafting tables
+    public static final Block PINK_BLOSSOM_CRAFTING_TABLE = registerCraftingTable("pink_blossom_crafting_table");
+
     public static void init() {
 
     }
@@ -146,6 +149,11 @@ public class SPBlocks {
     private static Block registerTrapdoor(String id) {
         Block block = TrapdoorBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE));
         TRAPDOORS.add(block);
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerCraftingTable(String id) {
+        Block block = new SPCraftingTableBlock(FabricBlockSettings.copyOf(Blocks.CRAFTING_TABLE));
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 

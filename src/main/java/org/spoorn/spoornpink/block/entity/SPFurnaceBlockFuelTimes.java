@@ -18,9 +18,16 @@ public class SPFurnaceBlockFuelTimes {
         // Fences
         registerFence(SPItems.PINK_BLOSSOM_FENCE);
         registerFence(SPItems.PINK_BLOSSOM_FENCE_GATE);
+
+        // Crafting tables
+        registerCraftingTable(SPItems.PINK_BLOSSOM_CRAFTING_TABLE);
     }
 
     private static void registerFence(ItemConvertible item) {
+        FuelRegistry.INSTANCE.add(item, 300);
+    }
+
+    private static void registerCraftingTable(ItemConvertible item) {
         FuelRegistry.INSTANCE.add(item, 300);
     }
 }

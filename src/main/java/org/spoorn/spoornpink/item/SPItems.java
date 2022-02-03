@@ -57,6 +57,9 @@ public class SPItems {
     // Boats
     public static Item PINK_BLOSSOM_BOAT = registerBoatItem("pink_blossom_boat");
 
+    // Crafting tables
+    public static Item PINK_BLOSSOM_CRAFTING_TABLE = registerBlockItem("pink_blossom_crafting_table", SPBlocks.PINK_BLOSSOM_CRAFTING_TABLE);
+
 
     public static void init() {
 

@@ -12,7 +12,8 @@
     "ConfiguredStructureFeaturesMixin",
     "DoorBlockAccessor",
     "TrapdoorBlockAccessor",
-    "ItemModelGeneratorMixin"
+    "ItemModelGeneratorMixin",
+    "CraftingTableBlockAccessor"
   ],
   "client": [
     "RenderLayersAccessor",
