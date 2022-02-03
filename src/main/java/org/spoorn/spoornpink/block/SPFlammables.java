@@ -33,6 +33,9 @@ public class SPFlammables {
         // Fences
         registerFence(SPBlocks.PINK_BLOSSOM_FENCE);
 
+        // Fence Gates
+        registerFenceGate(SPBlocks.PINK_BLOSSOM_FENCE_GATE);
+
         // Leaves
         registerLeaves(SPBlocks.PINK_BLOSSOM_LEAVES);
         registerLeaves(SPBlocks.DARK_PINK_BLOSSOM_LEAVES);
@@ -59,6 +62,10 @@ public class SPFlammables {
     }
 
     private static void registerFence(Block block) {
+        registerFlammableBlock(block, 5, 20);
+    }
+
+    private static void registerFenceGate(Block block) {
         registerFlammableBlock(block, 5, 20);
     }
 
