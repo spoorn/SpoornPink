@@ -5,10 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.SPBlocks;
+import org.spoorn.spoornpink.entity.boat.SPBoatEntity;
 
 public class SPItems {
 
@@ -52,6 +54,9 @@ public class SPItems {
     // Trapdoors
     public static Item PINK_BLOSSOM_TRAPDOOR = registerBlockItem("pink_blossom_trapdoor", SPBlocks.PINK_BLOSSOM_TRAPDOOR);
 
+    // Boats
+    public static Item PINK_BLOSSOM_BOAT = registerBoatItem("pink_blossom_boat");
+
 
     public static void init() {
 
@@ -65,6 +70,11 @@ public class SPItems {
         Item item = Registry.register(Registry.ITEM, new Identifier(SpoornPink.MODID, id), new BlockItem(block, new FabricItemSettings().group(SpoornPink.ITEM_GROUP)));
         registerCompostable(item);
         return item;
+    }
+
+    private static Item registerBoatItem(String id) {
+        Item item = new SPBoatItem(SPBoatEntity.Type.PINK_BLOSSOM, new Item.Settings().maxCount(1).group(SpoornPink.ITEM_GROUP));
+        return Registry.register(Registry.ITEM, new Identifier(SpoornPink.MODID, id), item);
     }
 
     // Update vanilla's composter block

@@ -6,10 +6,12 @@ import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import org.spoorn.spoornpink.block.SPBlocks;
 import org.spoorn.spoornpink.block.SPFlammables;
 import org.spoorn.spoornpink.block.entity.SPFurnaceBlockFuelTimes;
 import org.spoorn.spoornpink.config.ModConfig;
+import org.spoorn.spoornpink.entity.SPEntities;
 import org.spoorn.spoornpink.item.SPStrippedBlocks;
 import org.spoorn.spoornpink.item.SPItems;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
@@ -48,6 +50,9 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
 
         // Items
         SPItems.init();
+
+        // Entities
+        SPEntities.init();
 
         // Furnace Fuel times
         SPFurnaceBlockFuelTimes.init();

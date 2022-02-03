@@ -11,10 +11,13 @@
     "WoodenButtonBlockAccessor",
     "ConfiguredStructureFeaturesMixin",
     "DoorBlockAccessor",
-    "TrapdoorBlockAccessor"
+    "TrapdoorBlockAccessor",
+    "ItemModelGeneratorMixin"
   ],
   "client": [
-    "RenderLayersAccessor"
+    "RenderLayersAccessor",
+    "EntityRenderersMixin",
+    "MixinEntityModels"
   ],
   "injectors": {
     "defaultRequire": 1
