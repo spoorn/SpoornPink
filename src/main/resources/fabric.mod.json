@@ -25,6 +25,7 @@
   "mixins": [
     "spoornpink.mixins.json"
   ],
+  "accessWidener": "spoornpink.accesswidener",
   "depends": {
     "fabricloader": "*",
     "fabric": "*",

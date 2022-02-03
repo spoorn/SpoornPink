@@ -67,6 +67,9 @@ public class SPBlocks {
     // Trapdoors
     public static final Block PINK_BLOSSOM_TRAPDOOR = registerTrapdoor("pink_blossom_trapdoor");
 
+    // Signs
+    public static final Block PINK_BLOSSOM_SIGN = registerSign("pink_blossom");
+
     public static void init() {
 
     }
@@ -147,6 +150,11 @@ public class SPBlocks {
         Block block = TrapdoorBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE));
         TRAPDOORS.add(block);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerSign(String idPrefix) {
+        Block block = new SignBlock(FabricBlockSettings.copyOf(Blocks.OAK_SIGN), SignTypeAccessor.register(SignTypeAccessor.create(idPrefix)));
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, idPrefix + "_sign"), block);
     }
 
     private static Boolean canSpawnOnLeaves(BlockState state, BlockView world, BlockPos pos, EntityType<?> type) {
