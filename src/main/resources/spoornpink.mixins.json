@@ -10,7 +10,8 @@
     "PressurePlateBlockAccess",
     "WoodenButtonBlockAccessor",
     "ConfiguredStructureFeaturesMixin",
-    "DoorBlockAccessor"
+    "DoorBlockAccessor",
+    "TrapdoorBlockAccessor"
   ],
   "client": [
     "RenderLayersAccessor"

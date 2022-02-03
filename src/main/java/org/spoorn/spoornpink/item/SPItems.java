@@ -49,6 +49,9 @@ public class SPItems {
     public static Item PINK_BLOSSOM_FENCE = registerBlockItem("pink_blossom_fence", SPBlocks.PINK_BLOSSOM_FENCE);
     public static Item PINK_BLOSSOM_FENCE_GATE = registerBlockItem("pink_blossom_fence_gate", SPBlocks.PINK_BLOSSOM_FENCE_GATE);
 
+    // Trapdoors
+    public static Item PINK_BLOSSOM_TRAPDOOR = registerBlockItem("pink_blossom_trapdoor", SPBlocks.PINK_BLOSSOM_TRAPDOOR);
+
 
     public static void init() {
 

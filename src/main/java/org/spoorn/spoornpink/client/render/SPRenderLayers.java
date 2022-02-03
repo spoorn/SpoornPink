@@ -41,6 +41,11 @@ public class SPRenderLayers {
             map.put(block, RenderLayer.getCutout());
         }
 
+        // Trapdoors
+        for (Block block : SPBlocks.TRAPDOORS) {
+            map.put(block, RenderLayer.getCutout());
+        }
+
         RenderLayersAccessor.getBlocks().putAll(map);
     }
 }

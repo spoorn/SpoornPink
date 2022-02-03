@@ -11,10 +11,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.sapling.SPSaplingGenerator;
-import org.spoorn.spoornpink.mixin.DoorBlockAccessor;
-import org.spoorn.spoornpink.mixin.PressurePlateBlockAccess;
-import org.spoorn.spoornpink.mixin.StairsBlockAccess;
-import org.spoorn.spoornpink.mixin.WoodenButtonBlockAccessor;
+import org.spoorn.spoornpink.mixin.*;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
@@ -28,6 +25,7 @@ public class SPBlocks {
     public static final List<Block> DOOR_BLOCKS = new ArrayList<>();
     public static final List<Block> FENCES = new ArrayList<>();
     public static final List<Block> FENCE_GATES = new ArrayList<>();
+    public static final List<Block> TRAPDOORS = new ArrayList<>();
 
     // Logs
     public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
@@ -65,6 +63,9 @@ public class SPBlocks {
     // Fences
     public static final Block PINK_BLOSSOM_FENCE = registerFence("pink_blossom_fence");
     public static final Block PINK_BLOSSOM_FENCE_GATE = registerFenceGate("pink_blossom_fence_gate");
+
+    // Trapdoors
+    public static final Block PINK_BLOSSOM_TRAPDOOR = registerTrapdoor("pink_blossom_trapdoor");
 
     public static void init() {
 
@@ -139,6 +140,12 @@ public class SPBlocks {
     private static Block registerFenceGate(String id) {
         Block block = new FenceGateBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE));
         FENCE_GATES.add(block);
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerTrapdoor(String id) {
+        Block block = TrapdoorBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE));
+        TRAPDOORS.add(block);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
