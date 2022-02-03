@@ -8,9 +8,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import org.spoorn.spoornpink.block.SPBlocks;
 import org.spoorn.spoornpink.block.SPFlammables;
+import org.spoorn.spoornpink.block.entity.SPFurnaceBlockFuelTimes;
 import org.spoorn.spoornpink.config.ModConfig;
 import org.spoorn.spoornpink.item.SPStrippedBlocks;
-import org.spoorn.spoornpink.item.SpoornPinkItems;
+import org.spoorn.spoornpink.item.SPItems;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeRegistry;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
@@ -46,7 +47,10 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
         SPBlocks.init();
 
         // Items
-        SpoornPinkItems.init();
+        SPItems.init();
+
+        // Furnace Fuel times
+        SPFurnaceBlockFuelTimes.init();
 
         // Stripped blocks
         SPStrippedBlocks.init();

@@ -6,7 +6,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import org.spoorn.spoornpink.block.SPBlocks;
 import org.spoorn.spoornpink.client.render.SPRenderLayers;
-import org.spoorn.spoornpink.item.SpoornPinkItems;
+import org.spoorn.spoornpink.item.SPItems;
 
 @Log4j2
 @Environment(EnvType.CLIENT)
@@ -20,7 +20,7 @@ public class SpoornPinkClient implements ClientModInitializer {
         SPBlocks.init();
 
         // Items
-        SpoornPinkItems.init();
+        SPItems.init();
 
         // Render layers
         SPRenderLayers.init();

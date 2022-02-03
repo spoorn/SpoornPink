@@ -10,7 +10,7 @@ import net.minecraft.util.registry.Registry;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.block.SPBlocks;
 
-public class SpoornPinkItems {
+public class SPItems {
 
     // Logs
     public static Item PINK_BLOSSOM_LOG_ITEM = registerBlockItem("pink_blossom_log", SPBlocks.PINK_BLOSSOM_LOG);
@@ -44,6 +44,9 @@ public class SpoornPinkItems {
 
     // Doors
     public static Item PINK_BLOSSOM_DOOR = registerBlockItem("pink_blossom_door", SPBlocks.PINK_BLOSSOM_DOOR);
+
+    // Fences
+    public static Item PINK_BLOSSOM_FENCE = registerBlockItem("pink_blossom_fence", SPBlocks.PINK_BLOSSOM_FENCE);
 
 
     public static void init() {

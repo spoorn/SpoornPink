@@ -26,6 +26,7 @@ public class SPBlocks {
     public static final List<Block> SAPLINGS = new ArrayList<>();
     public static final List<Block> POTTED_BLOCKS = new ArrayList<>();
     public static final List<Block> DOOR_BLOCKS = new ArrayList<>();
+    public static final List<Block> FENCES = new ArrayList<>();
 
     // Logs
     public static final Block PINK_BLOSSOM_LOG = registerLog("pink_blossom_log");
@@ -59,6 +60,9 @@ public class SPBlocks {
 
     // Doors
     public static final Block PINK_BLOSSOM_DOOR = registerDoor("pink_blossom_door");
+
+    // Fences
+    public static final Block PINK_BLOSSOM_FENCE = registerFence("pink_blossom_fence");
 
     public static void init() {
 
@@ -121,6 +125,12 @@ public class SPBlocks {
     private static Block registerDoor(String id) {
         Block block = DoorBlockAccessor.create(FabricBlockSettings.copyOf(Blocks.OAK_DOOR));
         DOOR_BLOCKS.add(block);
+        return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
+    }
+
+    private static Block registerFence(String id) {
+        Block block = new FenceBlock(FabricBlockSettings.copyOf(Blocks.OAK_FENCE));
+        FENCES.add(block);
         return Registry.register(Registry.BLOCK, new Identifier(SpoornPink.MODID, id), block);
     }
 
