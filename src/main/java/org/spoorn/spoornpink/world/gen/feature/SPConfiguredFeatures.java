@@ -11,10 +11,6 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class SPConfiguredFeatures {
-
-    public static void init() {
-
-    }
     
     public static ConfiguredFeature<SPTreeConfig, ?> registerSPTreeCF(String id, Feature<SPTreeConfig> feature, SPTreeConfig spTreeConfig) {
         return register(id, feature.configure(spTreeConfig));

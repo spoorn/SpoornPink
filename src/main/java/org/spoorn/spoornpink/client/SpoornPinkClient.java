@@ -12,14 +12,5 @@ public class SpoornPinkClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         log.info("Hello client from SpoornPink!");
-
-        // Blocks
-        //SPBlocks.init();
-
-        // Items
-       // SPItems.init();
-
-        // Render layers
-        //SPRenderLayers.init();
     }
 }

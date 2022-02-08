@@ -48,11 +48,7 @@ public class SPPlacedFeatures {
                     CountPlacementModifier.of(10),
                     RarityFilterPlacementModifier.of(20), SquarePlacementModifier.of(),
                     PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));
-
-
-    public static void init() {
-
-    }
+    
     
     public static PlacedFeature registerTree(String id, ConfiguredFeature<?, ?> spTreeCF, Block saplingBlock) {
         PlacedFeature pf = register(id,
