@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "spoornpink:block/stripped_pink_blossom_log_top",
-    "side": "spoornpink:block/stripped_pink_blossom_log"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom_rh",
-  "textures": {
-    "top": "spoornpink:block/pink_blossom_door_top",
-    "bottom": "spoornpink:block/pink_blossom_door_bottom"
-  }
-}

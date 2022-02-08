@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "spoornpink:block/pink_blossom_sapling"
-  }
-}

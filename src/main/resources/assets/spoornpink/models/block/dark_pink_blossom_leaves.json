@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "spoornpink:block/dark_pink_blossom_leaves",
-    "particle": "spoornpink:block/dark_pink_blossom_leaves"
-  }
-}

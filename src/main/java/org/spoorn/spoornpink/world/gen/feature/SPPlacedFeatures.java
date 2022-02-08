@@ -1,29 +1,26 @@
 package org.spoorn.spoornpink.world.gen.feature;
 
+import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.decorator.*;
+import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacedFeatures;
 import net.minecraft.world.gen.feature.VegetationConfiguredFeatures;
 import org.spoorn.spoornpink.SpoornPink;
-import org.spoorn.spoornpink.block.SPBlocks;
+import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SPPlacedFeatures {
 
+    public static final Map<String, PlacedFeature> PLACED_FEATURES = new HashMap<>();
     public static final PlacementModifier NOT_IN_SURFACE_WATER_MODIFIER = SurfaceWaterDepthFilterPlacementModifier.of(0);
-
-    public static final PlacedFeature PINK_BLOSSOM_TREES = register("pink_blossom_trees",
-            SPConfiguredFeatures.PINK_BLOSSOM_TREES.withPlacement(
-                    PlacedFeatures.createCountExtraModifier(3, 0.05F, 2),
-                    SquarePlacementModifier.of(),
-                    NOT_IN_SURFACE_WATER_MODIFIER,
-                    PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
-                    BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(SPBlocks.PINK_BLOSSOM_SAPLING.getDefaultState(), BlockPos.ORIGIN)),
-                    BiomePlacementModifier.of()));
 
     /**
      * There is a Feature Order Cycle issue in vanilla code in {@link net.minecraft.world.biome.source.BiomeSource}
@@ -55,6 +52,19 @@ public class SPPlacedFeatures {
 
     public static void init() {
 
+    }
+    
+    public static PlacedFeature registerTree(String id, ConfiguredFeature<?, ?> spTreeCF, Block saplingBlock) {
+        PlacedFeature pf = register(id,
+                spTreeCF.withPlacement(
+                        PlacedFeatures.createCountExtraModifier(3, 0.05F, 2),
+                        SquarePlacementModifier.of(),
+                        NOT_IN_SURFACE_WATER_MODIFIER,
+                        PlacedFeatures.OCEAN_FLOOR_HEIGHTMAP,
+                        BlockFilterPlacementModifier.of(BlockPredicate.wouldSurvive(saplingBlock.getDefaultState(), BlockPos.ORIGIN)),
+                        BiomePlacementModifier.of()));
+        PLACED_FEATURES.put(id, pf);
+        return pf;
     }
 
     public static <PF extends PlacedFeature> PF register(String id, PF placedFeature) {

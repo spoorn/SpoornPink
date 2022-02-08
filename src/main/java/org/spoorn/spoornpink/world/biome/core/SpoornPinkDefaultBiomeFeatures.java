@@ -15,7 +15,7 @@ import org.spoorn.spoornpink.world.gen.feature.SPPlacedFeatures;
 public final class SpoornPinkDefaultBiomeFeatures {
 
     public static void addPinkBlossomTree(GenerationSettings.Builder genSettings) {
-        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_BLOSSOM_TREES);
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PLACED_FEATURES.get("pink_blossom_trees"));
     }
 
     public static void addDefaultGrass(GenerationSettings.Builder genSettings) {

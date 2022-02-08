@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "spoornpink:block/pink_blossom_planks",
-    "top": "spoornpink:block/pink_blossom_planks",
-    "side": "spoornpink:block/pink_blossom_planks"
-  }
-}
