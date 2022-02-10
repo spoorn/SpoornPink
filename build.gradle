@@ -50,7 +50,7 @@ dependencies {
     // FYI, TerraBlender documentation uses official mojang mappings
     modImplementation "com.github.glitchfiend:TerraBlender-fabric:${minecraft_version}-${terrablender_version}"
     
-    modImplementation 'com.github.spoorn:SpoornPacks:1.0'
+    modImplementation "com.github.spoorn:SpoornPacks:${spoornpacks_version}"
 }
 
 processResources {
