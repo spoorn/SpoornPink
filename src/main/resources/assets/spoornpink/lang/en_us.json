@@ -20,5 +20,8 @@
   "block.spoornpink.dark_pink_blossom_leaves" : "Dark Pink Blossom Leaves",
   "item.spoornpink.pink_blossom_boat" : "Pink Blossom Boat",
   "block.spoornpink.pink_blossom_crafting_table" : "Pink Blossom Crafting Table",
+  "block.spoornpink.pink_blossom_chest" : "Pink Blossom Chest",
+  "container.spoornpink.pink_blossom_chest" : "Pink Blossom Chest",
+  "container.spoornpink.pink_blossom.doubleChest" : "Pink Blossom Large Chest",
   "itemGroup.spoornpink.general" : "Cute is Pink"
 }
