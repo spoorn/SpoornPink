@@ -12,7 +12,6 @@ import org.spoorn.spoornpacks.api.Resource;
 import org.spoorn.spoornpacks.api.ResourceBuilder;
 import org.spoorn.spoornpacks.api.ResourceFactory;
 import org.spoorn.spoornpacks.core.generator.ResourceGenerator;
-import org.spoorn.spoornpacks.exception.DuplicateNameException;
 import org.spoorn.spoornpacks.registry.SpoornPacksRegistry;
 import org.spoorn.spoornpacks.type.BlockType;
 import org.spoorn.spoornpacks.type.ItemType;
@@ -52,60 +51,55 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
             }
         }
 
-        try {
-            // Pink Blossom blocks and items
-            String pink_blossom_name = "pink_blossom";
-            ResourceBuilder rb = ResourceFactory.create(MODID, pink_blossom_name, ITEM_GROUP)
-                    .addBlocks(BlockType.LOG, BlockType.WOOD, BlockType.PLANKS, BlockType.FENCE, BlockType.FENCE_GATE,
-                            BlockType.LEAVES, BlockType.BUTTON, BlockType.SLAB, BlockType.PRESSURE_PLATE, BlockType.STAIRS,
-                            BlockType.TRAPDOOR, BlockType.DOOR, BlockType.CRAFTING_TABLE, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD,
-                            BlockType.CHEST)
-                    .addItems(ItemType.LOG, ItemType.WOOD, ItemType.PLANKS, ItemType.FENCE, ItemType.FENCE_GATE,
-                            ItemType.LEAVES, ItemType.BUTTON, ItemType.SLAB, ItemType.PRESSURE_PLATE, ItemType.STAIRS,
-                            ItemType.TRAPDOOR, ItemType.DOOR, ItemType.CRAFTING_TABLE, ItemType.BOAT, ItemType.STRIPPED_LOG, ItemType.STRIPPED_WOOD,
-                            ItemType.CHEST)
-                    .addLeavesWithSaplingOverride("dark_pink_blossom", pink_blossom_name).addItem(ItemType.LEAVES, "dark_pink_blossom");
+        // Pink Blossom blocks and items
+        String pink_blossom_name = "pink_blossom";
+        ResourceBuilder rb = ResourceFactory.create(MODID, pink_blossom_name, ITEM_GROUP)
+                .addBlocks(BlockType.LOG, BlockType.WOOD, BlockType.PLANKS, BlockType.FENCE, BlockType.FENCE_GATE,
+                        BlockType.LEAVES, BlockType.BUTTON, BlockType.SLAB, BlockType.PRESSURE_PLATE, BlockType.STAIRS,
+                        BlockType.TRAPDOOR, BlockType.DOOR, BlockType.CRAFTING_TABLE, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD,
+                        BlockType.CHEST)
+                .addItems(ItemType.LOG, ItemType.WOOD, ItemType.PLANKS, ItemType.FENCE, ItemType.FENCE_GATE,
+                        ItemType.LEAVES, ItemType.BUTTON, ItemType.SLAB, ItemType.PRESSURE_PLATE, ItemType.STAIRS,
+                        ItemType.TRAPDOOR, ItemType.DOOR, ItemType.CRAFTING_TABLE, ItemType.BOAT, ItemType.STRIPPED_LOG, ItemType.STRIPPED_WOOD,
+                        ItemType.CHEST)
+                .addLeavesWithSaplingOverride("dark_pink_blossom", pink_blossom_name).addItem(ItemType.LEAVES, "dark_pink_blossom");
 
-            Resource resource = RESOURCE_GENERATOR.generate(rb);
-            
-            Optional<Block> pinkBlossomLogBlock = resource.getBlock(BlockType.LOG, pink_blossom_name);
-            Optional<Block> pinkBlossomLeavesBlock = resource.getBlock(BlockType.LEAVES, pink_blossom_name);
-            Optional<Block> darkPinkBlossomLeavesBlock = resource.getBlock(BlockType.LEAVES, "dark_" + pink_blossom_name);
-            
-            if (pinkBlossomLeavesBlock.isEmpty() || pinkBlossomLogBlock.isEmpty() || darkPinkBlossomLeavesBlock.isEmpty()) {
-                throw new RuntimeException("Could not generate pink_blossom_log or pink_blossom_leaves, or the dark variants");
-            }
-
-            // Trees
-            SPTreeConfig pinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
-                    .leavesProvider(SimpleBlockStateProvider.of(pinkBlossomLeavesBlock.get()))
-                    .build();
-            ConfiguredFeature<SPTreeConfig, ?> pinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("pink_blossom_tree",
-                    SPFeatures.PINK_BLOSSOM_TREE, pinkBlossomTreeConfig);
-            SPTreeConfig darkPinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
-                    .leavesProvider(SimpleBlockStateProvider.of(darkPinkBlossomLeavesBlock.get()))
-                    .build();
-            ConfiguredFeature<SPTreeConfig, ?> darkPinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("dark_pink_blossom_tree",
-                    SPFeatures.DARK_PINK_BLOSSOM_TREE, darkPinkBlossomTreeConfig);
-            ConfiguredFeature<?, ?> pinkBlossomTrees = SPConfiguredFeatures.registerMixOfTrees("pink_blossom_trees", pinkBlossomTree, pinkBlossomTree, darkPinkBlossomTree);
-            
-            // Saplings
-            ResourceBuilder saplingsRB = ResourceFactory.create(MODID, pink_blossom_name, ITEM_GROUP)
-                    .addSapling(pinkBlossomTrees).addItem(ItemType.SAPLING);
-            Resource saplingResource = RESOURCE_GENERATOR.generate(saplingsRB);
-            
-            Optional<Block> saplingBlock = saplingResource.getBlock(BlockType.SAPLING, pink_blossom_name);
-            
-            if (saplingBlock.isEmpty()) {
-                throw new RuntimeException("Could not generate " + pink_blossom_name + " sapling");
-            }
-            
-            // Placed Features
-            SPPlacedFeatures.registerTree(pink_blossom_name + "_trees", pinkBlossomTrees, saplingBlock.get());
-        } catch (DuplicateNameException e) {
-            log.error("Duplicate names", e);
-            throw new RuntimeException(e);
+        Resource resource = RESOURCE_GENERATOR.generate(rb);
+        
+        Optional<Block> pinkBlossomLogBlock = resource.getBlock(BlockType.LOG, pink_blossom_name);
+        Optional<Block> pinkBlossomLeavesBlock = resource.getBlock(BlockType.LEAVES, pink_blossom_name);
+        Optional<Block> darkPinkBlossomLeavesBlock = resource.getBlock(BlockType.LEAVES, "dark_" + pink_blossom_name);
+        
+        if (pinkBlossomLeavesBlock.isEmpty() || pinkBlossomLogBlock.isEmpty() || darkPinkBlossomLeavesBlock.isEmpty()) {
+            throw new RuntimeException("Could not generate pink_blossom_log or pink_blossom_leaves, or the dark variants");
         }
+
+        // Trees
+        SPTreeConfig pinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
+                .leavesProvider(SimpleBlockStateProvider.of(pinkBlossomLeavesBlock.get()))
+                .build();
+        ConfiguredFeature<SPTreeConfig, ?> pinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("pink_blossom_tree",
+                SPFeatures.PINK_BLOSSOM_TREE, pinkBlossomTreeConfig);
+        SPTreeConfig darkPinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
+                .leavesProvider(SimpleBlockStateProvider.of(darkPinkBlossomLeavesBlock.get()))
+                .build();
+        ConfiguredFeature<SPTreeConfig, ?> darkPinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("dark_pink_blossom_tree",
+                SPFeatures.DARK_PINK_BLOSSOM_TREE, darkPinkBlossomTreeConfig);
+        ConfiguredFeature<?, ?> pinkBlossomTrees = SPConfiguredFeatures.registerMixOfTrees("pink_blossom_trees", pinkBlossomTree, pinkBlossomTree, darkPinkBlossomTree);
+        
+        // Saplings
+        ResourceBuilder saplingsRB = ResourceFactory.create(MODID, pink_blossom_name, ITEM_GROUP)
+                .addSapling(pinkBlossomTrees).addItem(ItemType.SAPLING);
+        Resource saplingResource = RESOURCE_GENERATOR.generate(saplingsRB);
+        
+        Optional<Block> saplingBlock = saplingResource.getBlock(BlockType.SAPLING, pink_blossom_name);
+        
+        if (saplingBlock.isEmpty()) {
+            throw new RuntimeException("Could not generate " + pink_blossom_name + " sapling");
+        }
+        
+        // Placed Features
+        SPPlacedFeatures.registerTree(pink_blossom_name + "_trees", pinkBlossomTrees, saplingBlock.get());
 
         // Register biome keys
         SpoornPinkBiomeRegistry.init();
