@@ -57,11 +57,11 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
                 .addBlocks(BlockType.LOG, BlockType.WOOD, BlockType.PLANKS, BlockType.FENCE, BlockType.FENCE_GATE,
                         BlockType.LEAVES, BlockType.BUTTON, BlockType.SLAB, BlockType.PRESSURE_PLATE, BlockType.STAIRS,
                         BlockType.TRAPDOOR, BlockType.DOOR, BlockType.CRAFTING_TABLE, BlockType.STRIPPED_LOG, BlockType.STRIPPED_WOOD,
-                        BlockType.CHEST)
+                        BlockType.CHEST, BlockType.BARREL)
                 .addItems(ItemType.LOG, ItemType.WOOD, ItemType.PLANKS, ItemType.FENCE, ItemType.FENCE_GATE,
                         ItemType.LEAVES, ItemType.BUTTON, ItemType.SLAB, ItemType.PRESSURE_PLATE, ItemType.STAIRS,
                         ItemType.TRAPDOOR, ItemType.DOOR, ItemType.CRAFTING_TABLE, ItemType.BOAT, ItemType.STRIPPED_LOG, ItemType.STRIPPED_WOOD,
-                        ItemType.CHEST)
+                        ItemType.CHEST, ItemType.BARREL)
                 .addLeavesWithSaplingOverride("dark_pink_blossom", pink_blossom_name).addItem(ItemType.LEAVES, "dark_pink_blossom");
 
         Resource resource = RESOURCE_GENERATOR.generate(rb);
