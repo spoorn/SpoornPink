@@ -6,6 +6,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
+import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.world.biome.SPBiome;
 import terrablender.api.BiomeProvider;
 import terrablender.worldgen.TBClimate;
@@ -31,9 +33,12 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
     {
         log.info("Adding overworld Biomes");
         Set<RegistryKey<Biome>> replaced = new HashSet<>();
-        for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
+        this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
+            builder.replaceBiome(BiomeKeys.FOREST, SpoornPinkBiomeRegistry.KIKO_FOREST);
+        });
+        /*for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
             SPBiome spBiome = entry.getValue();
-            /*
+            *//*
             TODO: Use parameter point data if available.  Remove from KikoForest and PinkForest
             SpoornPinkUtil.ParameterPointData parameterPoints = spBiome.getParameterPoints();
             this.addBiome(mapper, MultiNoiseUtil.ParameterRange.of(parameterPoints.temperatureMin, parameterPoints.temperatureMax),
@@ -42,7 +47,7 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
                 MultiNoiseUtil.ParameterRange.of(parameterPoints.erosionMin, parameterPoints.erosionMax),
                 MultiNoiseUtil.ParameterRange.of(parameterPoints.weirdnessMin, parameterPoints.weirdnessMax),
                 MultiNoiseUtil.ParameterRange.of(parameterPoints.depth),
-                parameterPoints.offset, entry.getKey());*/
+                parameterPoints.offset, entry.getKey());*//*
             RegistryKey<Biome> replacementBiome = spBiome.replacementBiome();
             if (replaced.contains(replacementBiome)) {
                 throw new RuntimeException("Already replaced biome [" + replacementBiome + "]!  Could not add [" + spBiome + "]");
@@ -50,7 +55,7 @@ public class SpoornPinkBiomeProvider extends BiomeProvider {
                 this.addBiomeSimilar(mapper, spBiome.replacementBiome(), entry.getKey());
                 replaced.add(spBiome.replacementBiome());
             }
-        }
+        }*/
     }
 
     // Example on how to change the biome's surface

@@ -1,6 +1,13 @@
 package org.spoorn.spoornpink.util;
 
 import lombok.AllArgsConstructor;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import org.spoorn.spoornpacks.api.Resource;
+import org.spoorn.spoornpacks.type.BlockType;
+import org.spoorn.spoornpacks.type.ItemType;
+
+import java.util.Optional;
 
 public final class SpoornPinkUtil {
 
@@ -28,5 +35,21 @@ public final class SpoornPinkUtil {
             float continentalnessMax, float erosionMin, float erosionMax, float weirdnessMin, float weirdnessMax, float depth, float offset) {
         return new ParameterPointData(temperatureMin, temperatureMax, humidityMin, humidityMax, continentalnessMin, continentalnessMax, erosionMin,
                 erosionMax, weirdnessMin, weirdnessMax, depth, offset);
+    }
+    
+    public static Block getBlockFromResource(Resource resource, BlockType type, String name) {
+        Optional<Block> block = resource.getBlock(type, name);
+        if (block.isEmpty()) {
+            throw new RuntimeException("Could not find block of type=" + type + ", name=" + name + " in generated resources");
+        }
+        return block.get();
+    }
+
+    public static Item getItemFromResource(Resource resource, ItemType type, String name) {
+        Optional<Item> block = resource.getItem(type, name);
+        if (block.isEmpty()) {
+            throw new RuntimeException("Could not find item of type=" + type + ", name=" + name + " in generated resources");
+        }
+        return block.get();
     }
 }

@@ -3,16 +3,14 @@ package org.spoorn.spoornpink.world.gen.feature;
 import net.minecraft.block.Block;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.intprovider.ClampedIntProvider;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.decorator.*;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.PlacedFeatures;
-import net.minecraft.world.gen.feature.VegetationConfiguredFeatures;
+import net.minecraft.world.gen.feature.*;
 import org.spoorn.spoornpink.SpoornPink;
-import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +47,18 @@ public class SPPlacedFeatures {
                     RarityFilterPlacementModifier.of(20), SquarePlacementModifier.of(),
                     PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of()));
     
+    public static PlacedFeature PINK_LILAC_PATCH;
+    public static PlacedFeature PINK_ORCHIDS;
+    public static PlacedFeature KIKO_FLOWERS;
+
+    public static void bootstrap() {
+        PINK_LILAC_PATCH = PlacedFeatures.register("sp_tall_pink_lilac_patch", SPConfiguredFeatures.PINK_LILACS.withPlacement(
+                PlacedFeatures.createCountExtraModifier(4, 0.2f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+        PINK_ORCHIDS = PlacedFeatures.register("sp_pink_orchids", SPConfiguredFeatures.PINK_ORCHIDS.withPlacement(
+                PlacedFeatures.createCountExtraModifier(5, 0.1f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+        KIKO_FLOWERS = PlacedFeatures.register("sp_kiko_flowers", SPConfiguredFeatures.PINK_ORCHIDS.withPlacement(
+                PlacedFeatures.createCountExtraModifier(5, 0.1f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of()));
+    }
     
     public static PlacedFeature registerTree(String id, ConfiguredFeature<?, ?> spTreeCF, Block saplingBlock) {
         PlacedFeature pf = register(id,

@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -62,7 +63,14 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
                         ItemType.LEAVES, ItemType.BUTTON, ItemType.SLAB, ItemType.PRESSURE_PLATE, ItemType.STAIRS,
                         ItemType.TRAPDOOR, ItemType.DOOR, ItemType.CRAFTING_TABLE, ItemType.BOAT, ItemType.STRIPPED_LOG, ItemType.STRIPPED_WOOD,
                         ItemType.CHEST, ItemType.BARREL)
-                .addLeavesWithSaplingOverride("dark_pink_blossom", pink_blossom_name).addItem(ItemType.LEAVES, "dark_pink_blossom");
+                .addLeavesWithSaplingOverride("dark_pink_blossom", pink_blossom_name).addItem(ItemType.LEAVES, "dark_pink_blossom")
+                .addSmallFlower("pink_orchid", StatusEffects.SATURATION, 5)
+                .addSmallFlower("pink_orchid2", StatusEffects.SATURATION, 5)
+                .addSmallFlower("pink_orchid3", StatusEffects.SATURATION, 5)
+                .addSmallFlower("pink_orchid4", StatusEffects.SATURATION, 5)
+                .addSmallFlower("pink_orchid5", StatusEffects.SATURATION, 5)
+                .addBlock(BlockType.TALL_FLOWER, "pink_lilac").addItem(ItemType.TALL_FLOWER, "pink_lilac")
+                ;
 
         Resource resource = RESOURCE_GENERATOR.generate(rb);
         
@@ -98,8 +106,12 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
             throw new RuntimeException("Could not generate " + pink_blossom_name + " sapling");
         }
         
+        // Configured features
+        SPConfiguredFeatures.bootstrap(resource);
+        
         // Placed Features
         SPPlacedFeatures.registerTree(pink_blossom_name + "_trees", pinkBlossomTrees, saplingBlock.get());
+        SPPlacedFeatures.bootstrap();
 
         // Register biome keys
         SpoornPinkBiomeRegistry.init();

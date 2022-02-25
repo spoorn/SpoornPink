@@ -13,7 +13,16 @@ import org.spoorn.spoornpink.world.gen.feature.SPPlacedFeatures;
  * Similar to vanilla's {@link DefaultBiomeFeatures}.  Generation/Spawn settings that can be used by any biome.
  */
 public final class SpoornPinkDefaultBiomeFeatures {
+    
+    public static void addKikoFlowers(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.KIKO_FLOWERS);
+    }
 
+    public static void addPinkLilacAndOrchids(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_LILAC_PATCH);
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_ORCHIDS);
+    }
+    
     public static void addPinkBlossomTree(GenerationSettings.Builder genSettings) {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PLACED_FEATURES.get("pink_blossom_trees"));
     }
