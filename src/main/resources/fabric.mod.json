@@ -7,7 +7,9 @@
   "authors": [
     "spoorn"
   ],
-  "contact": {},
+  "contact": {
+    "website": "https://github.com/spoorn/SpoornPink/issues"
+  },
   "license": "LGPL-3.0",
   "icon": "assets/spoornpink/icon.png",
   "environment": "*",

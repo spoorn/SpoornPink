@@ -4,17 +4,9 @@
   "package": "org.spoorn.spoornpink.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "FireBlockAccessor",
-    "StairsBlockAccess",
-    "AxeItemAccessor",
-    "PressurePlateBlockAccess",
-    "WoodenButtonBlockAccessor",
-    "ConfiguredStructureFeaturesMixin",
-    "DoorBlockAccessor",
-    "TrapdoorBlockAccessor"
+    "ConfiguredStructureFeaturesMixin"
   ],
   "client": [
-    "RenderLayersAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
