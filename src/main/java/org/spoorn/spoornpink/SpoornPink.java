@@ -7,7 +7,10 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.RandomFeatureConfig;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import org.spoorn.spoornpacks.api.Resource;
 import org.spoorn.spoornpacks.api.ResourceBuilder;
@@ -23,7 +26,7 @@ import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
 import org.spoorn.spoornpink.world.gen.feature.SPFeatures;
 import org.spoorn.spoornpink.world.gen.feature.SPPlacedFeatures;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
-import terrablender.api.BiomeProviders;
+import terrablender.api.Regions;
 import terrablender.api.TerraBlenderApi;
 
 import java.util.Optional;
@@ -86,14 +89,14 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
         SPTreeConfig pinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
                 .leavesProvider(SimpleBlockStateProvider.of(pinkBlossomLeavesBlock.get()))
                 .build();
-        ConfiguredFeature<SPTreeConfig, ?> pinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("pink_blossom_tree",
+        RegistryEntry<ConfiguredFeature<SPTreeConfig, Feature<SPTreeConfig>>> pinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("pink_blossom_tree",
                 SPFeatures.PINK_BLOSSOM_TREE, pinkBlossomTreeConfig);
         SPTreeConfig darkPinkBlossomTreeConfig = SPTreeConfig.builder().trunkProvider(SimpleBlockStateProvider.of(pinkBlossomLogBlock.get()))
                 .leavesProvider(SimpleBlockStateProvider.of(darkPinkBlossomLeavesBlock.get()))
                 .build();
-        ConfiguredFeature<SPTreeConfig, ?> darkPinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("dark_pink_blossom_tree",
+        RegistryEntry<ConfiguredFeature<SPTreeConfig, Feature<SPTreeConfig>>> darkPinkBlossomTree = SPConfiguredFeatures.registerSPTreeCF("dark_pink_blossom_tree",
                 SPFeatures.DARK_PINK_BLOSSOM_TREE, darkPinkBlossomTreeConfig);
-        ConfiguredFeature<?, ?> pinkBlossomTrees = SPConfiguredFeatures.registerMixOfTrees("pink_blossom_trees", pinkBlossomTree, pinkBlossomTree, darkPinkBlossomTree);
+        RegistryEntry<ConfiguredFeature<RandomFeatureConfig, Feature<RandomFeatureConfig>>> pinkBlossomTrees = SPConfiguredFeatures.registerMixOfTrees("pink_blossom_trees", pinkBlossomTree, pinkBlossomTree, darkPinkBlossomTree);
         
         // Saplings
         ResourceBuilder saplingsRB = ResourceFactory.create(MODID, pink_blossom_name, ITEM_GROUP)
@@ -126,6 +129,6 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
                 configInitialized = true;
             }
         }
-        BiomeProviders.register(new SpoornPinkBiomeProvider(new Identifier(MODID, "biome_provider"), ModConfig.get().overworldWeight));
+        Regions.register(new SpoornPinkBiomeProvider(new Identifier(MODID, "biome_provider"), ModConfig.get().overworldWeight));
     }
 }

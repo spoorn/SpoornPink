@@ -4,6 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import org.spoorn.spoornpink.SpoornPink;
@@ -55,8 +56,8 @@ public class SpoornPinkBiomeRegistry {
         log.info("Registered biomes: [{}]", sb);
     }
 
-    private static Biome register(RegistryKey<Biome> key, Biome biome) {
-        return BuiltinRegistries.set(BuiltinRegistries.BIOME, key, biome);
+    private static RegistryEntry<Biome> register(RegistryKey<Biome> key, Biome biome) {
+        return BuiltinRegistries.add(BuiltinRegistries.BIOME, key, biome);
     }
 
     private static RegistryKey<Biome> registerBiomeKey(String name) {

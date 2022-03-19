@@ -5,8 +5,8 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import org.spoorn.spoornpink.util.SpoornPinkUtil;
-import terrablender.worldgen.TBClimate;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -38,7 +38,7 @@ public interface SPBiome {
     RegistryKey<Biome> replacementBiome();
 
     /**
-     * Below are parameters used for TerraBlender's {@link terrablender.api.BiomeProvider#addBiome(Consumer, TBClimate.ParameterPoint, RegistryKey).}
+     * Below are parameters used for TerraBlender's {@link terrablender.api.Region#addBiome(Consumer, MultiNoiseUtil.NoiseHypercube, RegistryKey)} .}
      *
      * These have to be unique per biome, else they will override each other.  You can think of the parameters as like
      * a unique key for the biome to be generated.
