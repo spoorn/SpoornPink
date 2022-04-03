@@ -2,10 +2,8 @@ package org.spoorn.spoornpink.world.biome;
 
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.biome.GenerationSettings;
+import net.minecraft.world.biome.*;
+import org.spoorn.spoornpink.particle.SpoornPinkParticles;
 import org.spoorn.spoornpink.util.SpoornPinkUtil;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkDefaultBiomeFeatures;
 
@@ -20,6 +18,7 @@ public class KikoForestBiome extends AbstractSPBiome {
             .music(null)
             .grassColor(11075534)
             .foliageColor(11075534)
+            .particleConfig(new BiomeParticleConfig(SpoornPinkParticles.PINK_BLOSSOM_PETALS, 0.0017f))
             .build();
 
     @Override

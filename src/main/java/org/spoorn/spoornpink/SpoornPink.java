@@ -3,10 +3,13 @@ package org.spoorn.spoornpink;
 import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.block.Block;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
@@ -20,6 +23,7 @@ import org.spoorn.spoornpacks.registry.SpoornPacksRegistry;
 import org.spoorn.spoornpacks.type.BlockType;
 import org.spoorn.spoornpacks.type.ItemType;
 import org.spoorn.spoornpink.config.ModConfig;
+import org.spoorn.spoornpink.particle.SpoornPinkParticles;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeRegistry;
 import org.spoorn.spoornpink.world.gen.feature.SPConfiguredFeatures;
@@ -115,6 +119,9 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
         // Placed Features
         SPPlacedFeatures.registerTree(pink_blossom_name + "_trees", pinkBlossomTrees, saplingBlock.get());
         SPPlacedFeatures.bootstrap();
+        
+        // Particles
+        SpoornPinkParticles.init();
 
         // Register biome keys
         SpoornPinkBiomeRegistry.init();
