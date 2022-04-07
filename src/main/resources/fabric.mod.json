@@ -33,6 +33,6 @@
     "minecraft": "1.18.x",
     "cloth-config2": "*",
     "terrablender": "*",
-    "spoornpacks": ">=4.1"
+    "spoornpacks": ">=4.2-1.18.2"
   }
 }

@@ -23,12 +23,21 @@ public final class SpoornPinkDefaultBiomeFeatures {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_ORCHIDS);
     }
     
+    public static void addPinkBlossomLeafPiles(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PINK_BLOSSOM_LEAF_PILES);
+    }
+    
     public static void addPinkBlossomTree(GenerationSettings.Builder genSettings) {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PLACED_FEATURES.get("pink_blossom_trees"));
     }
 
     public static void addDefaultGrass(GenerationSettings.Builder genSettings) {
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_GRASS);
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_TALL_GRASS);
+    }
+    
+    public static void addLessDefaultGrass(GenerationSettings.Builder genSettings) {
+        genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.LESS_PATCH_GRASS);
         genSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, SPPlacedFeatures.PATCH_TALL_GRASS);
     }
 

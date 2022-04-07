@@ -23,7 +23,7 @@ public abstract class AbstractSPBiome implements SPBiome {
 
     @Override
     public void genSettings(GenerationSettings.Builder genSettings) {
-        genSettings(genSettings, true, true, true, true);
+        genSettings(genSettings, true, true, true, true, true);
     }
 
     /**
@@ -40,7 +40,7 @@ public abstract class AbstractSPBiome implements SPBiome {
      * TODO: Add my own PlacedFeatures for everything to prevent feature order cycle with any other mod's biomes
      */
     protected void genSettings(GenerationSettings.Builder genSettings, boolean addForestFlowers, boolean addMeadowFlowers,
-                               boolean addMossyRocks, boolean addSweetBerryBushes) {
+                               boolean addMossyRocks, boolean addSweetBerryBushes, boolean addDefaultGrass) {
         SpoornPinkDefaultBiomeFeatures.addVanillaBasicFeatures(genSettings);
         if (addForestFlowers) DefaultBiomeFeatures.addForestFlowers(genSettings);
         if (addMossyRocks) DefaultBiomeFeatures.addMossyRocks(genSettings);
@@ -52,7 +52,7 @@ public abstract class AbstractSPBiome implements SPBiome {
         DefaultBiomeFeatures.addDefaultMushrooms(genSettings);
         DefaultBiomeFeatures.addDefaultVegetation(genSettings);
         if (addSweetBerryBushes) DefaultBiomeFeatures.addSweetBerryBushes(genSettings);
-        SpoornPinkDefaultBiomeFeatures.addDefaultGrass(genSettings);
+        if (addDefaultGrass) SpoornPinkDefaultBiomeFeatures.addDefaultGrass(genSettings);
     }
 
     @Override

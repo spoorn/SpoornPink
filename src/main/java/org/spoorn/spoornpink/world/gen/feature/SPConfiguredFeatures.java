@@ -24,6 +24,7 @@ public class SPConfiguredFeatures {
     public static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PINK_LILACS;
     public static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> PINK_ORCHIDS;
     public static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> KIKO_FLOWERS;
+    public static RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> PINK_BLOSSOM_LEAF_PILES;
 
     public static void bootstrap(Resource resource) {
         PINK_LILACS = ConfiguredFeatures.register("sp_pink_lilacs", Feature.FLOWER,
@@ -44,6 +45,12 @@ public class SPConfiguredFeatures {
                         .add(Blocks.AZURE_BLUET.getDefaultState(), 1)
                         .add(Blocks.OXEYE_DAISY.getDefaultState(), 1)
                 ), 64));
+        // We can just use Feature.FLOWER as it's a RandomPatch Feature
+        PINK_BLOSSOM_LEAF_PILES = ConfiguredFeatures.register("sp_pink_blossom_leaf_piles", Feature.SIMPLE_BLOCK,
+                createSimpleBlockFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                        .add(SpoornPinkUtil.getBlockFromResource(resource, BlockType.LEAF_PILE, "pink_blossom").getDefaultState(), 1)
+                        .add(SpoornPinkUtil.getBlockFromResource(resource, BlockType.LEAF_PILE, "dark_pink_blossom").getDefaultState(), 1)
+                )));
     }
 
     public static RegistryEntry<ConfiguredFeature<SPTreeConfig, Feature<SPTreeConfig>>> registerSPTreeCF(String id, Feature<SPTreeConfig> feature, SPTreeConfig spTreeConfig) {
@@ -74,5 +81,9 @@ public class SPConfiguredFeatures {
      */
     private static RandomPatchFeatureConfig createRandomPatchFeatureConfig(BlockStateProvider block, int tries) {
         return ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(block), List.of(), tries);
+    }
+
+    private static SimpleBlockFeatureConfig createSimpleBlockFeatureConfig(BlockStateProvider block) {
+        return new SimpleBlockFeatureConfig(block);
     }
 }

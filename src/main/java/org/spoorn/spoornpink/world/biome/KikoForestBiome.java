@@ -12,12 +12,12 @@ public class KikoForestBiome extends AbstractSPBiome {
     private static final BiomeEffects KIKO_FOREST_BIOME_EFFECTS = new BiomeEffects.Builder()
             .waterColor(14204415)
             .waterFogColor(14204415)
-            .fogColor(16770039)
+            .fogColor(16763353)
             .skyColor(16763375)
             .moodSound(BiomeMoodSound.CAVE)
             .music(null)
-            .grassColor(11075534)
-            .foliageColor(11075534)
+            .grassColor(10092477)
+            .foliageColor(10092477)
             .particleConfig(new BiomeParticleConfig(SpoornPinkParticles.PINK_BLOSSOM_PETALS, 0.0017f))
             .build();
 
@@ -28,8 +28,11 @@ public class KikoForestBiome extends AbstractSPBiome {
 
     @Override
     public void genSettings(GenerationSettings.Builder genSettings) {
-        super.genSettings(genSettings, false, false, false, true);
+        super.genSettings(genSettings, false, false, false, true, false);
+        SpoornPinkDefaultBiomeFeatures.addLessDefaultGrass(genSettings);
         SpoornPinkDefaultBiomeFeatures.addPinkBlossomTree(genSettings);
+        // Add leaf piles after trees since leaf piles check if leaves are above them
+        SpoornPinkDefaultBiomeFeatures.addPinkBlossomLeafPiles(genSettings);
         SpoornPinkDefaultBiomeFeatures.addPinkLilacAndOrchids(genSettings);
         SpoornPinkDefaultBiomeFeatures.addKikoFlowers(genSettings);
     }

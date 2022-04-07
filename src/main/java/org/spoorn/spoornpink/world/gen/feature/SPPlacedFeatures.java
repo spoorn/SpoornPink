@@ -8,7 +8,9 @@ import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
+import org.spoorn.spoornpacks.api.Resource;
 import org.spoorn.spoornpink.SpoornPink;
+import org.spoorn.spoornpink.world.gen.placementmodifier.LeafPilePlacementModifier;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,6 +38,9 @@ public class SPPlacedFeatures {
     public static final RegistryEntry<PlacedFeature> PATCH_GRASS = PlacedFeatures.register("sp_patch_grass",
             VegetationConfiguredFeatures.PATCH_GRASS,
                     SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
+    public static final RegistryEntry<PlacedFeature> LESS_PATCH_GRASS = PlacedFeatures.register("sp_less_patch_grass",
+            VegetationConfiguredFeatures.PATCH_GRASS,
+            RarityFilterPlacementModifier.of(3), SquarePlacementModifier.of(), PlacedFeatures.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.of());
     public static final RegistryEntry<PlacedFeature> PATCH_TALL_GRASS = PlacedFeatures.register("sp_patch_tall_grass",
             VegetationConfiguredFeatures.PATCH_TALL_GRASS,
                     RarityFilterPlacementModifier.of(5), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
@@ -48,14 +53,19 @@ public class SPPlacedFeatures {
     public static RegistryEntry<PlacedFeature> PINK_LILAC_PATCH;
     public static RegistryEntry<PlacedFeature> PINK_ORCHIDS;
     public static RegistryEntry<PlacedFeature> KIKO_FLOWERS;
+    public static RegistryEntry<PlacedFeature> PINK_BLOSSOM_LEAF_PILES;
 
     public static void bootstrap() {
         PINK_LILAC_PATCH = PlacedFeatures.register("sp_tall_pink_lilac_patch", SPConfiguredFeatures.PINK_LILACS,
-                PlacedFeatures.createCountExtraModifier(4, 0.2f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+                PlacedFeatures.createCountExtraModifier(2, 0.2f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
         PINK_ORCHIDS = PlacedFeatures.register("sp_pink_orchids", SPConfiguredFeatures.PINK_ORCHIDS,
-                PlacedFeatures.createCountExtraModifier(5, 0.1f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
-        KIKO_FLOWERS = PlacedFeatures.register("sp_kiko_flowers", SPConfiguredFeatures.PINK_ORCHIDS,
-                PlacedFeatures.createCountExtraModifier(5, 0.1f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+                PlacedFeatures.createCountExtraModifier(3, 0.1f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        KIKO_FLOWERS = PlacedFeatures.register("sp_kiko_flowers", SPConfiguredFeatures.KIKO_FLOWERS,
+                PlacedFeatures.createCountExtraModifier(2, 0.2f, 1), RarityFilterPlacementModifier.of(4), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
+        // Placement Modifiers are triggered in order, so put LeafPilePlacementModifier at the end since it's expensive
+        PINK_BLOSSOM_LEAF_PILES = PlacedFeatures.register("sp_pink_blossom_leaf_piles", SPConfiguredFeatures.PINK_BLOSSOM_LEAF_PILES,
+               // TODO: refactor to use maxHeight from TreeConfig
+               BiomePlacementModifier.of(), LeafPilePlacementModifier.of(6, 0.5f, 0.01f));
     }
     
     public static RegistryEntry<PlacedFeature> registerTree(String id, RegistryEntry<ConfiguredFeature<RandomFeatureConfig, Feature<RandomFeatureConfig>>> spTreeCF, Block saplingBlock) {
