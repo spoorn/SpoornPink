@@ -31,6 +31,7 @@ public class SpoornPinkBiomeProvider extends Region {
         Set<RegistryKey<Biome>> replaced = new HashSet<>();
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
             builder.replaceBiome(BiomeKeys.FOREST, SpoornPinkBiomeRegistry.KIKO_FOREST);
+            builder.replaceBiome(BiomeKeys.BIRCH_FOREST, SpoornPinkBiomeRegistry.KIKO_FOREST);
         });
         /*for (Entry<RegistryKey<Biome>, SPBiome> entry : SpoornPinkBiomeRegistry.BIOMES.entrySet()) {
             SPBiome spBiome = entry.getValue();
