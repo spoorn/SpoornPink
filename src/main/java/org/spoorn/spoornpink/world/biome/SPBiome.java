@@ -26,8 +26,6 @@ public interface SPBiome {
 
     Biome.Precipitation getPrecipitation();
 
-    Biome.Category getBiomeCategory();
-
     float getTemperature();
 
     float getDownfall();

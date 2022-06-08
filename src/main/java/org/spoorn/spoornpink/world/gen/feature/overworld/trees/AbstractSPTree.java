@@ -8,11 +8,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
-import net.minecraft.structure.Structure;
+import net.minecraft.structure.StructureTemplate;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3i;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.BitSetVoxelSet;
 import net.minecraft.util.shape.VoxelSet;
 import net.minecraft.world.ModifiableWorld;
@@ -25,7 +26,6 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Set;
 
 /**
@@ -52,7 +52,7 @@ public abstract class AbstractSPTree<FC extends SPTreeConfig> extends Feature<FC
          */
         return BlockBox.encompassPositions(Iterables.concat(changedTrunkBlocks, changedLeafBlocks)).map(box -> {
             VoxelSet voxelSet = placeLogsAndLeaves(world, box, changedTrunkBlocks);
-            Structure.updateCorner(world, Block.NOTIFY_ALL, voxelSet, box.getMinX(), box.getMinY(), box.getMinZ());
+            StructureTemplate.updateCorner(world, Block.NOTIFY_ALL, voxelSet, box.getMinX(), box.getMinY(), box.getMinZ());
             return true;
         }).orElse(false);
     }

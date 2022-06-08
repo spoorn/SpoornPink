@@ -61,11 +61,6 @@ public abstract class AbstractSPBiome implements SPBiome {
     }
 
     @Override
-    public Biome.Category getBiomeCategory() {
-        return Biome.Category.PLAINS;
-    }
-
-    @Override
     public float getDownfall() {
         return 0.4f;
     }

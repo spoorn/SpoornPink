@@ -13,15 +13,14 @@ public class SpoornPinkOverworldBiomeCreator {
         spBiome.spawnSettings(spawnSettings);
         GenerationSettings.Builder genSettings = new GenerationSettings.Builder();
         spBiome.genSettings(genSettings);
-        return createBiome(spBiome.getPrecipitation(), spBiome.getBiomeCategory(), spBiome.getTemperature(), spBiome.getDownfall(),
+        return createBiome(spBiome.getPrecipitation(), spBiome.getTemperature(), spBiome.getDownfall(),
                 spBiome.getBiomeEffects(), spawnSettings, genSettings);
     }
 
-    private static Biome createBiome(Biome.Precipitation precipitation, Biome.Category category, float temperature, float downfall,
+    private static Biome createBiome(Biome.Precipitation precipitation, float temperature, float downfall,
                                        BiomeEffects biomeEffects, SpawnSettings.Builder spawnSettings, GenerationSettings.Builder generationSettings) {
         return new Biome.Builder()
                 .precipitation(precipitation)
-                .category(category)
                 .temperature(temperature)
                 .downfall(downfall)
                 .effects(biomeEffects)

@@ -3,11 +3,11 @@ package org.spoorn.spoornpink.world.gen.feature.overworld.trees;
 import com.mojang.serialization.Codec;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.World;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
-import java.util.Random;
 import java.util.Set;
 
 public class DarkPinkBlossomTree extends AbstractSPTree<SPTreeConfig> {
@@ -27,7 +27,7 @@ public class DarkPinkBlossomTree extends AbstractSPTree<SPTreeConfig> {
 
         // Trunk
         BlockPos.Mutable mutableBlockPos = origin.mutableCopy();
-        int height = random.nextInt(config.minHeight, config.maxHeight + 1);
+        int height = random.nextBetween(config.minHeight, config.maxHeight + 1);
         for (int i = 0; i < height; ++i) {
             placeTrunk(changedTrunkBlocks, world, random, mutableBlockPos, config);
             mutableBlockPos.move(Direction.UP);

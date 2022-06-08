@@ -8,7 +8,6 @@ import net.minecraft.world.biome.source.BiomeSource;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.*;
-import org.spoorn.spoornpacks.api.Resource;
 import org.spoorn.spoornpink.SpoornPink;
 import org.spoorn.spoornpink.world.gen.placementmodifier.LeafPilePlacementModifier;
 
