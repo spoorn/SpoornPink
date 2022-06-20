@@ -5,7 +5,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.StructureWorldAccess;
-import net.minecraft.world.World;
 import org.spoorn.spoornpink.world.gen.feature.config.SPTreeConfig;
 
 import java.util.Set;
@@ -18,10 +17,6 @@ public class PinkBlossomTree extends AbstractSPTree<SPTreeConfig> {
 
     @Override
     protected boolean generate(Set<BlockPos> changedTrunkBlocks, Set<BlockPos> changedLeafBlocks, StructureWorldAccess world, Random random, BlockPos origin, SPTreeConfig config) {
-        if (world.toServerWorld().getRegistryKey() != World.OVERWORLD) {
-            return false;
-        }
-
         // Force dirt under tree if possible
         placeDirt(changedTrunkBlocks, world, random, origin.down(), config);
 
