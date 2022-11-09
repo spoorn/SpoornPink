@@ -1,5 +1,7 @@
 package org.spoorn.spoornpink;
 
+import blue.endless.jankson.annotation.Nullable;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.log4j.Log4j2;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -16,9 +18,11 @@ import org.spoorn.spoornpacks.api.Resource;
 import org.spoorn.spoornpacks.api.ResourceBuilder;
 import org.spoorn.spoornpacks.api.ResourceFactory;
 import org.spoorn.spoornpacks.core.generator.ResourceGenerator;
+import org.spoorn.spoornpacks.provider.ResourceProvider;
 import org.spoorn.spoornpacks.registry.SpoornPacksRegistry;
 import org.spoorn.spoornpacks.type.BlockType;
 import org.spoorn.spoornpacks.type.ItemType;
+import org.spoorn.spoornpacks.type.ResourceType;
 import org.spoorn.spoornpink.config.ModConfig;
 import org.spoorn.spoornpink.particle.SpoornPinkParticles;
 import org.spoorn.spoornpink.world.biome.core.SpoornPinkBiomeProvider;
@@ -43,6 +47,14 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
     );
 
     private static boolean configInitialized = false;
+
+    private static final class EmptyResourceProvider implements ResourceProvider {
+        @Nullable
+        @Override
+        public ObjectNode getJson() {
+            return null;
+        }
+    }
 
     @Override
     public void onInitialize() {
@@ -75,6 +87,7 @@ public class SpoornPink implements ModInitializer, TerraBlenderApi {
                 .addSmallFlower("pink_orchid4", StatusEffects.SATURATION, 5)
                 .addSmallFlower("pink_orchid5", StatusEffects.SATURATION, 5)
                 .addBlock(BlockType.TALL_FLOWER, "pink_lilac").addItem(ItemType.TALL_FLOWER, "pink_lilac")
+                .addCustomResourceProvider("pink_blossom_barrel", ResourceType.RECIPE, new EmptyResourceProvider())
                 ;
 
         Resource resource = RESOURCE_GENERATOR.generate(rb);
